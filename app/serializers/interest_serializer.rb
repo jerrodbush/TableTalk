@@ -1,3 +1,3 @@
 class InterestSerializer < ActiveModel::Serializer
-  attributes :id, :user_id, :interest, :priority
+  attributes :id, :reservation_id, :interest, :priority
 end
