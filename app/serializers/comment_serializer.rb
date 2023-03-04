@@ -1,3 +1,3 @@
 class CommentSerializer < ActiveModel::Serializer
-  attributes :id, :reservation_id, :comment, :author
+  attributes :id, :reservation_id, :comment, :user_id
 end
