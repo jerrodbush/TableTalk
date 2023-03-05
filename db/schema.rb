@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_04_221521) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_04_221522) do
   create_table "comments", force: :cascade do |t|
     t.integer "reservation_id"
     t.string "comment"
@@ -65,6 +65,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_04_221521) do
     t.datetime "updated_at", null: false
     t.string "rest_image"
     t.string "website"
+    t.float "longitude"
+    t.float "latitude"
   end
 
   create_table "users", force: :cascade do |t|

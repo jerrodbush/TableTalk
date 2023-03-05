@@ -74,6 +74,7 @@ GEM
     builder (3.2.4)
     case_transform (0.2)
       activesupport
+    certifi (2018.01.18)
     concurrent-ruby (1.2.2)
     crass (1.0.6)
     date (3.3.3)
@@ -83,8 +84,10 @@ GEM
     erubi (1.12.0)
     faker (3.1.1)
       i18n (>= 1.8.11, < 2)
+    geocoder (1.8.1)
     globalid (1.1.0)
       activesupport (>= 5.0)
+    gmaps4rails (2.1.2)
     i18n (1.12.0)
       concurrent-ruby (~> 1.0)
     io-console (0.6.0)
@@ -169,8 +172,11 @@ PLATFORMS
 
 DEPENDENCIES
   active_model_serializers (~> 0.10.12)
+  certifi
   debug
   faker
+  geocoder
+  gmaps4rails
   puma (~> 5.0)
   rails (~> 7.0.4, >= 7.0.4.2)
   sqlite3 (~> 1.4)
