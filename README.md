@@ -58,8 +58,8 @@ Here's a breakdown of the backend:
 ### API Endpoints
 <img
     src="client/src/assets/API_endpoints.png"
-    alt="TableTalk Models"
-    title="TableTalk Models">
+    alt="API Endpoints"
+    title="API Endpoints">
 
 ### Serializer Example
 * Code Snippet
@@ -79,14 +79,14 @@ Here's a breakdown of the backend:
 ### React Client-Side Routing
 <img
     src="client/src/assets/frontend_routing.png"
-    alt="TableTalk Models"
-    title="TableTalk Models">
+    alt="Frontend Routing"
+    title="Frontend Routing">
 
 ### React Component Tree
 <img
     src="client/src/assets/component_tree.jpg"
-    alt="TableTalk Models"
-    title="TableTalk Models">
+    alt="Component Tree"
+    title="Component Tree">
 
 ## Stretch Goals
 * CRUD/UI for restaurants
