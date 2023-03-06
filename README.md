@@ -8,7 +8,7 @@ https://github.com/Irishwolf13/TableTalk
 ## Wireframe
 * Quick demo of TableTalk [wireframe](https://www.fluidui.com/editor/live/preview/cF9XZ2h4VG9LUTJjcHRWcEU3cm9ta1ViRTAzUzZmSUloYg==)
 <img
-    src="client/src/assets/TableTalk_Wireframe.png"
+    src="client/src/assets/tableTalk_wireframe.png"
     alt="Wireframe for TableTalk"
     title="Wireframe for TableTalk">
 
@@ -25,7 +25,7 @@ Here's a breakdown of the backend:
 8. An Interest belongs to a Reservation
 ### Entity-Relationship Diagram (ERD)
 <img
-    src="client/src/assets/Models.png"
+    src="client/src/assets/models.png"
     alt="TableTalk Models"
     title="TableTalk Models">
 
@@ -61,16 +61,30 @@ Here's a breakdown of the backend:
     alt="TableTalk Models"
     title="TableTalk Models">
 
+### Serializer Example
+* Code Snippet
+<img
+    src="client/src/assets/serializer_example_code.png"
+    alt="Serializer Example - Code Sample"
+    title="Serializer Example - Code Sample">
+
+* Server Snippet
+<br>
+<img
+    src="client/src/assets/serializer_example_server.png"
+    alt="Serializer Example - Server Sample"
+    title="Serializer Example - Server Sample">
+
 ## Frontend
 ### React Client-Side Routing
 <img
-    src="client/src/assets/Frontend_Routing.png"
+    src="client/src/assets/frontend_routing.png"
     alt="TableTalk Models"
     title="TableTalk Models">
 
 ### React Component Tree
 <img
-    src="client/src/assets/Component_Tree.jpg"
+    src="client/src/assets/component_tree.jpg"
     alt="TableTalk Models"
     title="TableTalk Models">
 
