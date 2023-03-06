@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  rescue_from ActiveRecord::RecordNotFound, with: :user_not_found
+
   def index
     render json: User.all(), status: :ok
   end
@@ -31,5 +33,9 @@ class UsersController < ApplicationController
 
   def strong_params
     params.permit(:first_name, :last_name, :age, :phone, :email, :location, :password, :user_image)
+  end
+
+  def user_not_found
+    render json: {error: "User not found"}, status: :not_found
   end
 end

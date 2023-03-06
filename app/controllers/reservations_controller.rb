@@ -1,6 +1,5 @@
 class ReservationsController < ApplicationController
 rescue_from ActiveRecord::RecordNotFound, with: :res_not_found
-rescue_from ActiveRecord::RecordInvalid, with: :res_invalid
 
   def index
     render json: Reservation.all(), status: :ok
@@ -34,9 +33,5 @@ rescue_from ActiveRecord::RecordInvalid, with: :res_invalid
 
   def res_not_found
     render json: {error: "Reservation not found"}, status: :not_found
-  end
-
-  def res_invalid error
-    render json: {error: error.message}, status: 422
   end
 end
