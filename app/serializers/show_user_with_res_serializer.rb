@@ -12,9 +12,7 @@ class ShowUserWithResSerializer < ActiveModel::Serializer
         time: myRes.time,
         number_of_seats: myRes.number_of_seats,
         check_type: myRes.check_type,
-        # members: myRes.members
         members: myRes.members.map do |myMember|
-          # full_name = "#{myMember.user.first_name} #{myMember.last_name}"
           {
             id: myMember.user.id,
             name: myMember.user.full_name,
