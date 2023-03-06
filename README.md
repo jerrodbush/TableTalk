@@ -12,6 +12,20 @@ https://github.com/Irishwolf13/TableTalk
     alt="Wireframe for TableTalk"
     title="Wireframe for TableTalk">
 
+## User Stories
+1. A user can view reservations and restaurants
+2. A user can make a reservation
+3. A user can update their reservation
+4. A user can delete their reservation
+5. A user can join an existing reservation
+6. A user can comment on an existing reservation
+7. A user can add Interests to their reservation or a reservation they're a member of
+8. A user can log in to an existing account
+9. A user can sign up for an account
+10. A user can update their account
+11. A user can delete their account
+12. A user can search for a reservation or restaurant
+
 ## Backend
 Here's a breakdown of the backend:
 ### Models
