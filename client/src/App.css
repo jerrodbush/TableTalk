@@ -13,3 +13,52 @@ body {
   width: 100vw;
   background-color: #1B4965;
 }
+
+#carousel-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+  width: 100vw;
+  height: 100%;
+}
+
+#carousel-text-wrapper {
+  display: grid;
+  margin-top: 0px;
+  padding: 10px;
+  width: 100vw;
+}
+
+#carousel-text-wrapper > * {
+  grid-column-start: 1;
+  grid-row-start: 1;
+}
+
+#carousel-text-wrapper > *:last-child {
+  justify-self: right;
+  align-self: center;
+}
+
+#carousel-text-wrapper > *:first-child {
+  justify-self: left;
+  align-self: center;
+  margin-left: 15vw;
+}
+
+#carousel-text-right {
+  margin-right: 16.27vw;
+}
+
+#carousel-wrapper {
+  width: 75vw;
+  padding-right: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-self: center;
+  padding-left: 50px;
+}
+
