@@ -102,7 +102,7 @@ Restaurant.create(
     website: "http://5thandtaylor.com/",
     rest_image: "https://images.squarespace-cdn.com/content/v1/554980e9e4b0278520c6c43c/1453326177044-98UAYQPF8LKA6DBLQ9MM/5th+%26+Taylor+dining+room+-+smaller+file.jpg?format=2500w",
     open_time: Faker::Number.within(range: 5..7),
-    close_time: Faker::Number.within(range: 9..12),
+close_time: Faker::Number.within(range: 9..12),
     capacity: Faker::Number.within(range: 20..40),
     longitude: -86.797501,
     latitude: 36.187881
@@ -492,7 +492,7 @@ puts 'seeding 100 reservations 📆'
     user_id: User.all.sample.id,
     restaurant_id: Restaurant.all.sample.id,
     date: my_dates.sample,
-    time: Faker::Number.within(range: 5..9),
+    time: Faker::Number.within(range: 5..21),
     number_of_seats: Faker::Number.within(range: 2..8),
     check_type: my_check.sample
 )
