@@ -52,9 +52,9 @@ my_dates = [
 ]
 
 my_check = [
-    "I pay",
-    "You pay",
-    "We pay",
+    "Host pays",
+    "Members pay",
+    "Split check",
 ]
 
 my_cuisines = [
@@ -83,7 +83,7 @@ puts 'seeding 300 users 👤'
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     email: Faker::Internet.safe_email,
-    phone: Faker::PhoneNumber.cell_phone,
+    phone: Faker::Number.number(digits: 10),
     age: Faker::Number.within(range: 18..100),
     location: "Nashville",
     username: Faker::Internet.username,
@@ -492,7 +492,7 @@ puts 'seeding 100 reservations 📆'
     user_id: User.all.sample.id,
     restaurant_id: Restaurant.all.sample.id,
     date: my_dates.sample,
-    time: Faker::Number.within(range: 5..21),
+    time: Faker::Number.within(range: 5..11),
     number_of_seats: Faker::Number.within(range: 2..8),
     check_type: my_check.sample
 )
@@ -527,7 +527,7 @@ puts 'done seeding cuisines 🥙'
 
 puts 'seeding members 🥙'
 my_number = 0
-30.times do
+150.times do
     Member.create(user_id: User.all.sample.id, reservation_id: Reservation.all.sample.id, guest_check_type: my_check.sample)
 end
 puts 'done members 🥙'
