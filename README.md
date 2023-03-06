@@ -1,24 +1,87 @@
-# README
+# TableTalk
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+TableTalk allows users to book reservations at restaurants and have other users (usually strangers) join their table to have a great meal, great conversations, and great time!
 
-Things you may want to cover:
+## github repository
+https://github.com/Irishwolf13/TableTalk
 
-* Ruby version
+## Wireframe
+* Quick demo of TableTalk [wireframe](https://www.fluidui.com/editor/live/preview/cF9XZ2h4VG9LUTJjcHRWcEU3cm9ta1ViRTAzUzZmSUloYg==)
+<img
+    src="client/src/assets/TableTalk_Wireframe.png"
+    alt="Wireframe for TableTalk"
+    title="Wireframe for TableTalk">
 
-* System dependencies
+## Backend
+Here's a breakdown of the backend:
+### Models
+1. A User has many Reservations, has many Ratings, and has many Members
+2. A Reservation has many Members, has many Interests, has many Comments, belongs to a User, belongs to a Restaurant, and belongs to a User
+3. A Restaurant has many Reservations, has many Ratings, and has many Cuisines
+4. A Member has has one User and belongs to a Reservation
+5. A Rating belongs to a User and belongs to a Restaurant
+6. A Cuisine belongs to a Restaurant
+7. A Comment belongs to a Reservation
+8. An Interest belongs to a Reservation
+### Entity-Relationship Diagram (ERD)
+<img
+    src="client/src/assets/Models.png"
+    alt="TableTalk Models"
+    title="TableTalk Models">
 
-* Configuration
+### Model Validations
+#### Users
+* validates **presence** for first_name, last_name, email, phone number, location, username, and password
+* validates **format** for phone number (/\A\+?\d{1,3}[-.\s]?\d{1,10}\z/)
+* validates **inclusion** for age (between 18 and 99)
+* validates **length** for password (minimum: 8)
+* validates **format** for password (includes 1 digit)
+* validates **uniqueness** for email
+* validates **format** for email (VALID_EMAIL_REGEX)
 
-* Database creation
+#### Reservations
+* validates **presence** for reservation_id, user_id, date, time, number_of_seats, and check_type
+* validates **numericality** for time
 
-* Database initialization
+#### Members
+* validates **presence** for reservation_id and user_id
 
-* How to run the test suite
+#### Ratings (stretch goal)
+* validates **presence** for user_id, restaurant_id, and rating
+* validates **numericality** for rating
+* validates **inclusion** for rating (between 1 and 5)
 
-* Services (job queues, cache servers, search engines, etc.)
+#### Comments
+* validates **presence** for reservation_id, user_id, and comment
+* validates **length** for comment (between 2 and 500)
 
-* Deployment instructions
+### API Endpoints
+<img
+    src="client/src/assets/API_endpoints.png"
+    alt="TableTalk Models"
+    title="TableTalk Models">
 
-* ...
+## Frontend
+### React Client-Side Routing
+<img
+    src="client/src/assets/Frontend_Routing.png"
+    alt="TableTalk Models"
+    title="TableTalk Models">
+
+### React Component Tree
+<img
+    src="client/src/assets/Component_Tree.jpg"
+    alt="TableTalk Models"
+    title="TableTalk Models">
+
+## Stretch Goals
+* CRUD/UI for restaurants
+* Ratings for restaurants
+
+## Technologies
+* Ruby
+* Ruby on Rails
+* ActiveRecord
+* React
+* JavaScript
+* CSS
