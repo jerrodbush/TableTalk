@@ -1,7 +1,10 @@
-import React from 'react'
+import React from 'react';
+import NavBar from './NavBar'
 
 export default function BusinessPage() {
   return (
-    <div>BusinessPage</div>
+   <>
+    <NavBar/>
+   </>
   )
 }

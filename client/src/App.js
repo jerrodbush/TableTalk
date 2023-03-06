@@ -7,42 +7,49 @@ import HomePage from './components/HomePage';
 import ProfilePage from './components/ProfilePage';
 import BusinessPage from './components/BusinessPage';
 import ReservationsPage from './components/ReservationsPage';
+import BusinessSearch from './components/BusinessSearch';
 import ProfileSettings from './components/ProfileSettings';
-
+import { UserProvider } from './context/user.js';
 
 function App() {
   return (
     <div className="App">
-      <Routes>
-         <Route 
-            path="/" 
-            element={<Login/>}
-          />
+    <UserProvider>
+        <Routes>
           <Route 
-            path="/signup" 
-            element={<Signup/>}
-          />
-          <Route 
-            path="/home"
-            element={<HomePage/>}
-          />
-          <Route 
-            path="/profile/:username"
-            element={<ProfilePage/>}
-          />
-          <Route 
-            path="/business/:businessname"
-            element={<BusinessPage/>}
-          />
-          <Route 
-            path="/reservations"
-            element={<ReservationsPage/>}
-          />
-          <Route
-            path="/profile/:username/settings"
-            element={<ProfileSettings/>}
-          />
-      </Routes>
+              path="/" 
+              element={<Login/>}
+            />
+            <Route 
+              path="/signup" 
+              element={<Signup/>}
+            />
+            <Route 
+              path="/home"
+              element={<HomePage/>}
+            />
+            <Route 
+              path="/profile/:username"
+              element={<ProfilePage/>}
+            />
+            <Route 
+              path="/business"
+              element={<BusinessSearch/>}
+            />
+            <Route 
+              path="/business/:businessname"
+              element={<BusinessPage/>}
+            />
+            <Route 
+              path="/reservations"
+              element={<ReservationsPage/>}
+            />
+            <Route
+              path="/profile/:username/settings"
+              element={<ProfileSettings/>}
+            />
+        </Routes>
+      </UserProvider>
     </div>
   );
 }
