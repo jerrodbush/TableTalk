@@ -27,7 +27,7 @@ body {
 #carousel-text-wrapper {
   display: grid;
   margin-top: 0px;
-  padding: 10px;
+  padding: 0px;
   width: 100vw;
 }
 
@@ -44,11 +44,15 @@ body {
 #carousel-text-wrapper > *:first-child {
   justify-self: left;
   align-self: center;
-  margin-left: 15vw;
+  margin-left: 13vw;
+  font-weight: 900;
+  font-size: 35px;
 }
 
 #carousel-text-right {
-  margin-right: 16.27vw;
+  margin-right: 15vw;
+  margin-bottom: 0px;
+  font-weight: 300;
 }
 
 #carousel-wrapper {
@@ -60,5 +64,118 @@ body {
   align-content: center;
   align-self: center;
   padding-left: 50px;
+  margin-top: 0px;
+  padding-top: 0px;
 }
+
+#reservation-card-container {
+  background-color: #CAE9FF;
+  height: 100%;
+  width: 300px;
+  border-radius: 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+}
+
+#reservation-card-image-container{
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  text-align: center;
+}
+
+#reservation-card-image-container > img{
+  border-top-left-radius: 5%;
+  border-top-right-radius: 5%;
+  height: 200px;
+}
+
+#top-left {
+  position: absolute;
+  top: 8px;
+  left: 16px;
+}
+
+#top-right {
+  position: absolute;
+  top: 8px;
+  right: 16px;
+}
+#top-right > h4 {
+  padding: 0px;
+  margin-bottom: 0px;
+}
+#top-right > h5 {
+  padding: 0px;
+  margin-top: 2px;
+  background-color: red;
+  border-radius: 15%;
+  color: white;
+}
+
+#reservation-user-info-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+#reservation-user-info-wrapper > * {
+  padding-left: 5px;
+  padding-top: 5px;
+  padding-bottom: 0px;
+  text-align: center;
+}
+
+#reservation-card-bottom-container > h3 {
+  text-align: left;
+  margin: 0px;
+  padding-top: 8px;
+  padding-left: 10px;
+}
+
+#reservation-card-bottom-container > h5 {
+  text-align: left;
+  margin: 0px;
+  padding-top: 8px;
+  padding-left: 10px;
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+}
+
+#reservation-card-bottom-container > *:last-child {
+  position: relative;
+  left: 90px;
+  bottom: 20px;
+}
+
+#reservation-card-bottom-container > button {
+  background-color: #1B4965;
+  color: white;
+  height: 30px;
+  width: 85px;
+  border: none;
+}
+
+#reservation-card-bottom-container > button:hover {
+  background-color: #5FA8D3;
+}
+
+#footer {
+  padding: 2px;
+  background-color:#1B4965;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  margin-top: 10px;
+}
+
+#footer > * {
+  text-align: center;
+  justify-content: center;
+  align-content: center;
+}
+
 
