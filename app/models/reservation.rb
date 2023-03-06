@@ -3,4 +3,5 @@ class Reservation < ApplicationRecord
   belongs_to :restaurant
   has_many :comments
   has_many :interests
+  has_many :members
 end

@@ -525,4 +525,11 @@ my_number = 0
 end
 puts 'done seeding cuisines 🥙'
 
+puts 'seeding members 🥙'
+my_number = 0
+30.times do
+    Member.create(user_id: User.all.sample.id, reservation_id: Reservation.all.sample.id, guest_check_type: my_check.sample)
+end
+puts 'done members 🥙'
+
 puts 'done seeding all data ✅'
