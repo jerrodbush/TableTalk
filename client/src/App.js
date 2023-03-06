@@ -7,6 +7,7 @@ import HomePage from './components/HomePage';
 import ProfilePage from './components/ProfilePage';
 import BusinessPage from './components/BusinessPage';
 import ReservationsPage from './components/ReservationsPage';
+import BusinessSearch from './components/BusinessSearch';
 import ProfileSettings from './components/ProfileSettings';
 import { UserProvider } from './context/user.js';
 
@@ -30,6 +31,10 @@ function App() {
             <Route 
               path="/profile/:username"
               element={<ProfilePage/>}
+            />
+            <Route 
+              path="/business"
+              element={<BusinessSearch/>}
             />
             <Route 
               path="/business/:businessname"

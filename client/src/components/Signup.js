@@ -107,9 +107,32 @@ export default function Signup() {
       }
     }
 
+    const handleGoBack = () => {
+      const newProgression = {
+        index: progression.index - 1
+      }
+      setProgression(newProgression);
+    }
+    const renderBackBtn = () => {
+      if(progression.index !== 1) {
+      return <div>
+        <button onClick={handleGoBack} >Go Back</button>
+      </div>
+      }
+      else if (progression.index === 1) {
+        return null
+      }
+      else {
+        return <div>
+              <button onClick={setProgression({index: 1})}>Refresh Form</button>
+          </div>
+      }
+    }
+
   return (
     <div>
       
+      {renderBackBtn()}
       {/* button goes top right  */}
       <div>
         <button>Login</button>
