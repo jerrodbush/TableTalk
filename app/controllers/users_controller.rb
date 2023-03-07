@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    newUser = User.create(strong_params)
+    newUser = User.create!(strong_params)
     render json: newUser, status: :created
   end
 
@@ -33,7 +33,7 @@ class UsersController < ApplicationController
   private
 
   def strong_params
-    params.permit(:first_name, :last_name, :age, :phone, :email, :location, :password, :user_image)
+    params.permit(:first_name, :last_name, :age, :phone, :email, :location, :password, :user_image, :username)
   end
 
   def user_not_found
