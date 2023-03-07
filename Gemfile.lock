@@ -74,7 +74,6 @@ GEM
     builder (3.2.4)
     case_transform (0.2)
       activesupport
-    certifi (2018.01.18)
     concurrent-ruby (1.2.2)
     crass (1.0.6)
     date (3.3.3)
@@ -84,10 +83,8 @@ GEM
     erubi (1.12.0)
     faker (3.1.1)
       i18n (>= 1.8.11, < 2)
-    geocoder (1.8.1)
     globalid (1.1.0)
       activesupport (>= 5.0)
-    gmaps4rails (2.1.2)
     i18n (1.12.0)
       concurrent-ruby (~> 1.0)
     io-console (0.6.0)
@@ -120,6 +117,7 @@ GEM
       racc (~> 1.4)
     nokogiri (1.14.2-x86_64-linux)
       racc (~> 1.4)
+    pg (1.4.6)
     puma (5.6.5)
       nio4r (~> 2.0)
     racc (1.6.2)
@@ -155,8 +153,6 @@ GEM
     rake (13.0.6)
     reline (0.3.2)
       io-console (~> 0.5)
-    sqlite3 (1.6.1-x86_64-darwin)
-    sqlite3 (1.6.1-x86_64-linux)
     thor (1.2.1)
     timeout (0.3.2)
     tzinfo (2.0.6)
@@ -172,18 +168,15 @@ PLATFORMS
 
 DEPENDENCIES
   active_model_serializers (~> 0.10.12)
-  certifi
   debug
   faker
-  geocoder
-  gmaps4rails
+  pg
   puma (~> 5.0)
   rails (~> 7.0.4, >= 7.0.4.2)
-  sqlite3 (~> 1.4)
   tzinfo-data
 
 RUBY VERSION
-   ruby 2.7.4p191
+   ruby 3.1.0p0
 
 BUNDLED WITH
    2.3.25
