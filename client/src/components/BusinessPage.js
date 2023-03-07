@@ -10,7 +10,7 @@ export default function BusinessPage()
 
   useEffect(function ()
   {
-    fetch(`https://tabletalk.onrender.com/restaurants/${businessid}`)
+    fetch(`http://localhost:9292/restaurants/${businessid}`)
       .then(function (resp)
       {
         return resp.json()
