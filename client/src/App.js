@@ -11,43 +11,44 @@ import BusinessSearch from './components/BusinessSearch';
 import ProfileSettings from './components/ProfileSettings';
 import { UserProvider } from './context/user.js';
 
-function App() {
+function App()
+{
   return (
     <div className="App">
-    <UserProvider>
+      <UserProvider>
         <Routes>
-          <Route 
-              path="/" 
-              element={<Login/>}
-            />
-            <Route 
-              path="/signup" 
-              element={<Signup/>}
-            />
-            <Route 
-              path="/home"
-              element={<HomePage/>}
-            />
-            <Route 
-              path="/profile/:username"
-              element={<ProfilePage/>}
-            />
-            <Route 
-              path="/business"
-              element={<BusinessSearch/>}
-            />
-            <Route 
-              path="/business/:businessname"
-              element={<BusinessPage/>}
-            />
-            <Route 
-              path="/reservations"
-              element={<ReservationsPage/>}
-            />
-            <Route
-              path="/profile/:username/settings"
-              element={<ProfileSettings/>}
-            />
+          <Route
+            path="/"
+            element={<Login />}
+          />
+          <Route
+            path="/signup"
+            element={<Signup />}
+          />
+          <Route
+            path="/home"
+            element={<HomePage />}
+          />
+          <Route
+            path="/profile/:username"
+            element={<ProfilePage />}
+          />
+          <Route
+            path="/business"
+            element={<BusinessSearch />}
+          />
+          <Route
+            path="/business/:businessid"
+            element={<BusinessPage />}
+          />
+          <Route
+            path="/reservations"
+            element={<ReservationsPage />}
+          />
+          <Route
+            path="/profile/:username/settings"
+            element={<ProfileSettings />}
+          />
         </Routes>
       </UserProvider>
     </div>
