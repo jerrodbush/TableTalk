@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :user_not_found
 
   def index
+    frank = User.all()
     render json: User.all(), status: :ok
   end
 
