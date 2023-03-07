@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    newUser = User.create!(strong_params)
+    newUser = User.create(strong_params)
     render json: newUser, status: :created
   end
 
