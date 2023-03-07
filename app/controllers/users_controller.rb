@@ -33,7 +33,7 @@ class UsersController < ApplicationController
   private
 
   def strong_params
-    params.permit(:first_name, :last_name, :age, :phone, :email, :location, :password, :user_image)
+    params.permit(:first_name, :last_name, :age, :phone, :email, :location, :password, :user_image, :username)
   end
 
   def user_not_found
