@@ -2,18 +2,19 @@ import React from 'react';
 
 const UserContext = React.createContext();
 
-function UserProvider({ children }) {
+function UserProvider({ children })
+{
     const state = {
         isLoggedIn: false,
-        userId: null,
+        user_id: null,
         page: null,
         username: null,
-        name: null,
+        first_name: null,
+        last_name: null,
         email: null,
         password: null,
-        phonenumber: null,
-        pfpUrl: null,
-        interests: {},
+        phone: null,
+        user_image: null
     }
 
     return <UserContext.Provider value={state}>{children}</UserContext.Provider>;

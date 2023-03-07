@@ -36,7 +36,7 @@ export default function BusinessPage()
           </div>
         </div>
         <div className='businessMapContainer'>
-          <MapContainer longitude={business.longitude} latitude={business.latitude} />
+          <MapContainer business={business} longitude={business.longitude} latitude={business.latitude} />
           Container 2
         </div>
       </div>

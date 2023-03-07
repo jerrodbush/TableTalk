@@ -2,7 +2,8 @@ import { React, useContext, useState } from 'react'
 import { UserContext } from "../context/user";
 import { useNavigate } from 'react-router-dom';
 
-export default function Login() {
+export default function Login()
+{
 
   // initialize User Context
   const userState = useContext(UserContext);
@@ -23,7 +24,8 @@ export default function Login() {
   const [formState, setFormState] = useState(initialState);
 
   //handle form submission
-  const handleSubmit = (e) => {
+  const handleSubmit = (e) =>
+  {
     e.preventDefault();
 
     //write logic to autheticate
@@ -33,18 +35,19 @@ export default function Login() {
   }
 
   // handle form input Change
-  const handleChange = (e) => {
-    setFormState({...formState, [e.target.name]: e.target.value});
+  const handleChange = (e) =>
+  {
+    setFormState({ ...formState, [e.target.name]: e.target.value });
   }
 
 
-  
+
   return (
     <div>
 
       {/* button goes top right  */}
       <div>
-        <button>Sign Up</button>
+        <button onClick={() => navigate('/signup')}>Sign Up</button>
       </div>
 
       {/* center above form */}
@@ -55,12 +58,12 @@ export default function Login() {
       {/* login form */}
       <div>
         <form onSubmit={handleSubmit}>
-            <input name="username" type="text" required onChange={handleChange} value={formState.username} placeholder="username"/>
-            <input name="password" type="password" required onChange={handleChange} value={formState.password} placeholder="password"/>
-            <button type="submit">Login</button>
+          <input name="username" type="text" required onChange={handleChange} value={formState.username} placeholder="username" />
+          <input name="password" type="password" required onChange={handleChange} value={formState.password} placeholder="password" />
+          <button type="submit">Login</button>
         </form>
       </div>
-      
+
     </div>
   )
 }

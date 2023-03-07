@@ -6,6 +6,8 @@ const MapContainer = (props) =>
 {
     console.log('props.google:', props.google);
     console.log(props.longitude, props.latitude)
+    console.log(props)
+
     const mapStyles = {
         height: "100%",
         width: "100%",
@@ -52,8 +54,11 @@ const MapContainer = (props) =>
                     position={{ lat: props.latitude, lng: props.longitude }}
                 >
                     <div>
-                        <h4>Location Name</h4>
-                        <p>This is some sample text for the InfoWindow.</p>
+                        <h4>{props.business.name}</h4>
+                        <p>{props.business.address}</p>
+                        <p>{props.business.phone}</p>
+                        <p>{props.business.website}</p>
+                        <p>Hours: {props.business.open_time} - {props.business.close_time}</p>
                     </div>
                 </InfoWindow>
             </Map>
@@ -63,5 +68,5 @@ const MapContainer = (props) =>
 }
 
 export default GoogleApiWrapper({
-    apiKey: process.env.REACT_APP_GOOGLE_API_KEY
+    apiKey: 'AIzaSyDHvI2jwOhq647GqEIEPF4XTN0pR-x4PNo'
 })(MapContainer);
