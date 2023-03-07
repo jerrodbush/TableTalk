@@ -5,13 +5,14 @@ const UserContext = React.createContext();
 function UserProvider({ children }) {
     const state = {
         isLoggedIn: false,
-        userId: null,
+        user_id: null,
         page: null,
         username: null,
-        name: null,
+        first_name: null,
+        last_name: null,
         email: null,
         password: null,
-        phonenumber: null,
+        phone: null,
         pfpUrl: null,
         interests: {},
     }
