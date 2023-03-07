@@ -10,7 +10,7 @@ export default function BusinessPage()
 
   useEffect(function ()
   {
-    fetch(`http://localhost:9292/restaurants/${businessid}`)
+    fetch(`/restaurants/${businessid}`)
       .then(function (resp)
       {
         return resp.json()
