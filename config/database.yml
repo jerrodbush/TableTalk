@@ -22,4 +22,6 @@ test:
 
 production:
   <<: *default
-  database: tabletalk_production
+  url: <%= ENV['DATABASE_URL'] %>
+
+
