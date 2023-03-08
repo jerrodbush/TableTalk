@@ -44,7 +44,7 @@ export default function NavBar() {
               <div className="nav-link">
                 <NavLink to="/profile/user1/settings">Settings</NavLink>
               </div>
-              <div className="nav-link">
+              <div id="logout-nav" className="nav-link">
                 <NavLink to="/" onClick={handleLogout}>Log Out</NavLink>
               </div>
       </Menu>

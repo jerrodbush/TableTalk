@@ -31,6 +31,9 @@ body {
   color: white;
 }
 
+#logout-nav {
+  margin-top: 100px;
+}
 
 
 #logo {
