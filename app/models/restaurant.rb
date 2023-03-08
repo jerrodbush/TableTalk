@@ -32,7 +32,7 @@ class Restaurant < ApplicationRecord
         res_vacancy[res[:date_and_time]] = res[:party_size]
       end
     end
-    res_vacancy.sort_by(&:first).to_h
     res_vacancy.map { |k, v| [k, self.capacity - v] }.to_h
+    res_vacancy.sort_by(&:first).to_h
   end
 end
