@@ -7,14 +7,15 @@ function UserProvider({ children }) {
         isLoggedIn: false,
         user_id: null,
         page: null,
-        username: null,
-        first_name: null,
-        last_name: null,
-        email: null,
-        password: null,
+        full_name: null,
         phone: null,
-        pfpUrl: null,
-        interests: {},
+        age: null,
+        username: null,
+        email: null,
+        location: null,
+        // password: null,
+        user_image: null
+        // interests: {},
     }
 
     return <UserContext.Provider value={state}>{children}</UserContext.Provider>;

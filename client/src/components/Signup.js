@@ -2,7 +2,7 @@ import { React, useContext, useState } from 'react'
 import { UserContext } from "../context/user";
 import { useNavigate } from 'react-router-dom';
 
-export default function Signup() {
+export default function Signup({updateUser}) {
 
     // initialize User Context
     const userState = useContext(UserContext);
@@ -59,8 +59,17 @@ export default function Signup() {
         },
         body: JSON.stringify(formState)
       })
-      .then(res => res.json())
-      .then(data => console.log(data))
+      .then(res => {
+        if(res.ok){
+          res.json().then(user => {
+            updateUser(user)
+            navigate('/business/1')
+          })
+        } else {
+          alert('Something went wrong with your signup.')
+          // add json errors
+        }
+      })
       // This is where you want to navigate back to Login (or if this also logs in, navigate to main page)
       // This is where we would add to current user...
     }
