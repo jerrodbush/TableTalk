@@ -39,6 +39,12 @@
     padding: 20px;
 }
 
+.nav-button-wrapper-2 {
+    position: absolute;
+    right: 145px;
+    padding: 20px;
+}
+
 #login-form {
     display: flex;
     flex-direction: column;

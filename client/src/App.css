@@ -12,12 +12,6 @@ body {
   z-index: 2;
 }
 
-#background {
-  z-index: -1;
-  position: fixed;
-  display: center;
-}
-
 #logo {
   color: white;
   padding: 15px;
@@ -29,7 +23,7 @@ body {
   height: 100%;
 }
 
-.form {
+form {
   display: flex;
   flex-direction: column;
   margin: 0 auto;

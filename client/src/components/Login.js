@@ -76,10 +76,10 @@ export default function Login() {
   return (
     <>
     <div className="login-container">
-    <ParticleBackground settings={settings} id="background"/>
+    <ParticleBackground settings={settings}/>
       {/* button goes top right  */}
       <div className="nav-button-wrapper">
-        <button id="signup-btn">Sign Up</button>
+        <button id="signup-btn" onClick={() => navigate('/signup')}>Sign Up</button>
       </div>
 
       {/* center above form */}
