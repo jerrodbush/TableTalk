@@ -23,7 +23,7 @@ canvas {
 
 /* Position and sizing of burger button */
 .bm-burger-button {
-  position: fixed;
+  position: absolute;
   width: 34px;
   height: 28px;
   right: 36px;
