@@ -5,16 +5,15 @@ import { useParams } from 'react-router-dom';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import '../App.css';
-import  {IoGlobe} from "react-icons/io5";
-import {UserContext} from '../context/user.js';
+import { IoGlobe } from "react-icons/io5";
+import { UserContext } from '../context/user.js';
 
 
 export default function BusinessPage()
-
 {
 
-   // initialize User Context
-   const { userState, setUserState } = useContext(UserContext);
+  // initialize User Context
+  const { userState, setUserState } = useContext(UserContext);
 
   const responsive = {
     desktop: {
@@ -40,7 +39,7 @@ export default function BusinessPage()
   const initialState = {
     check_type: 'Host pays',
     number_of_seats: '',
-    user_id: 470,
+    user_id: 700,
     restaurant_id: businessid,
     date: '',
     time: 1,
@@ -95,6 +94,18 @@ export default function BusinessPage()
     return <button id="time-carousel-btn" onClick={() => handleClick(time)}>{time}</button>
   })
 
+  const [isMapLoaded, setIsMapLoaded] = useState(false);
+
+  useEffect(() =>
+  {
+    const timerId = setTimeout(() =>
+    {
+      setIsMapLoaded(true);
+    }, 1000);
+
+    return () => clearTimeout(timerId);
+  }, []);
+
   return (
     <>
       <NavBar />
@@ -102,15 +113,15 @@ export default function BusinessPage()
         <div className='businessTopContainer'>
           <div className='business-details'>
             <img src={business.rest_image} id='business-image'></img>
-            
+
             <p id="price-indicator">{business.price}</p>
-            <a  id="website" href={business.website}><IoGlobe className="icon" size="30px"/></a>
+            <a id="website" href={business.website}><IoGlobe className="icon" size="30px" /></a>
             <h3 id="business-name">{business.name}</h3>
             <h4 id="business-address">{business.address}</h4>
             <a href={`TEL:` + business.phone}><p id="phone-num">{business.phone}</p></a>
           </div>
           <div className="reserve-form-container">
-              <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit}>
               <input type="date" id='date-input' name='date' value={formState.date} onChange={handleChange}></input>
               <select onChange={handleChange} name="check_type">
                 <option value="Host pays">I pay</option>
@@ -124,7 +135,7 @@ export default function BusinessPage()
 
         </div>
         <div className='businessMapContainer'>
-          <MapContainer  className="map-container" business={business} longitude={business.longitude} latitude={business.latitude} />
+          {isMapLoaded && <MapContainer className="map-container" business={business} longitude={business.longitude} latitude={business.latitude} />}
         </div>
       </div>
       <div className='bottomBusinessContainer'>
@@ -133,7 +144,7 @@ export default function BusinessPage()
             {mappedTimes}
           </Carousel>
         </div>
-        <button  id="reserve-btn"type='submit'>Reserve</button>
+        <button id="reserve-btn" type='submit'>Reserve</button>
       </div>
     </>
   )
