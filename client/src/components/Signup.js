@@ -83,7 +83,7 @@ export default function Signup() {
     //needs styling
     const form2 = <>
         <form onSubmit={handleSubmitNext}>
-            <input name="age" required type="integer" onChange={handleChange} value={formState.age} placeholder="Age"/>
+            <input name="age" required type="number" onChange={handleChange} value={formState.age} placeholder="Age"/>
             <input name="user_image" required type="text" onChange={handleChange} value={formState.user_image} placeholder="Profile Picture Link"/>
             <input name="phone" required type="text" onChange={handleChange} value={formState.phone} placeholder="Phone Number"/>
             <input name="location" required type="text" onChange={handleChange} value={formState.location} placeholder="City or Town"/>
