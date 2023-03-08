@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import '../styling/login.css';
 import ParticleBackground from 'react-particle-backgrounds'
 
-export default function Login() {
+export default function Login({updateUser}) {
 
   //bg settings
   const settings = {
@@ -33,7 +33,7 @@ export default function Login() {
 
   // initialize User Context
   const userState = useContext(UserContext);
-
+  const [error, setError] = useState([])
   //allow navigation
   const navigate = useNavigate();
 
@@ -49,6 +49,19 @@ export default function Login() {
   //create form state
   const [formState, setFormState] = useState(initialState);
 
+  const updateUserState = (obj) => {
+    userState.page = 'home'
+    userState.isLoggedIn = true
+    userState.user_id = obj.id
+    userState.full_name = obj.full_name
+    userState.phone = obj.phone
+    userState.age = obj.age
+    userState.username = obj.username
+    userState.email = obj.email
+    userState.location = obj.location
+    userState.user_image = obj.user_image
+  }
+
   //handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -60,10 +73,17 @@ export default function Login() {
     })
     .then(res => {
       if(res.ok){
-        console.log('winner')
-        res.json().then(navigate('/home'))
+        res.json().then(obj => {
+          console.log(obj)
+          updateUserState(obj)
+          updateUser(obj)
+          console.log(userState)
+        }
+        )
+        .then(navigate('/business/1'))
       } else {
-        console.log("Error logging in.")
+        // alert("Error logging in.")
+        res.json().then(json => setError(json.error))
       }
     })
     }
@@ -96,6 +116,10 @@ export default function Login() {
             <button type="submit">Login</button>
         </form>
       </div>
+
+
+      {error? <div>{error}</div>:null}
+
     </div>
     </div>
   </>
