@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import '../styling/signup.css';
 import ParticleBackground from 'react-particle-backgrounds'
 
-export default function Signup() {
+export default function Signup({updateUser}) {
 
   //bg settings
   const settings = {
@@ -86,8 +86,17 @@ export default function Signup() {
         },
         body: JSON.stringify(formState)
       })
-      .then(res => res.json())
-      .then(data => console.log(data))
+      .then(res => {
+        if(res.ok){
+          res.json().then(user => {
+            updateUser(user)
+            navigate('/business/1')
+          })
+        } else {
+          alert('Something went wrong with your signup.')
+          // add json errors
+        }
+      })
       // This is where you want to navigate back to Login (or if this also logs in, navigate to main page)
       // This is where we would add to current user...
     }

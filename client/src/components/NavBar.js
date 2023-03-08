@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import "../index.css"
 
-export default function NavBar() {
+export default function NavBar({updateUser}) {
     const [menuState, setMenuState] = useState(false)
 
     //allow navigation
@@ -21,6 +21,7 @@ export default function NavBar() {
       })
       .then(res => {
         if(res.ok){
+          updateUser(null)
           navigate('/')
         }
       })

@@ -5,7 +5,7 @@ import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import ReservationCard from './ReservationCard';
 
-export default function HomePage() {
+export default function HomePage({updateUser}) {
 
   const responsive = {
     desktop: {
@@ -27,7 +27,7 @@ export default function HomePage() {
 
   return (
     <>
-      <NavBar/>
+      <NavBar updateUser={updateUser}/>
       <div id="carousel-container">
         <div id="carousel-text-wrapper">
           <h3>Trending</h3>

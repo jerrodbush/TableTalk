@@ -30,21 +30,33 @@ const [user, setUser] = useState(null)
     })
   }, [])
 
+  const updateUser = (user) => setUser(user)
+
+  if(!user) return (
+    <div className="App">
+      <UserProvider>
+          <Login updateUser={updateUser}/>
+          <Signup updateUser={updateUser}/>
+          {/* hi, dylan! we'd like the signup/login to be a ternary and only show the login upon page load and show the signup when you click the button which will also make the login form go away. does that make sense? call me, beep me. */}
+      </UserProvider>
+    </div>
+  )
+
   return (
     <div className="App">
       <UserProvider>
         <Routes>
           <Route
             path="/"
-            element={<Login />}
+            element={<Login updateUser={updateUser}/>}
           />
           <Route
             path="/signup"
-            element={<Signup />}
+            element={<Signup updateUser={updateUser}/>}
           />
           <Route
             path="/home"
-            element={<HomePage />}
+            element={<HomePage updateUser={updateUser}/>}
           />
           <Route
             path="/profile/:username"
