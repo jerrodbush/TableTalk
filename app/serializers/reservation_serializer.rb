@@ -1,9 +1,3 @@
 class ReservationSerializer < ActiveModel::Serializer
-  attributes :id, :user_id, :host, :restaurant_id, :date, :time, :number_of_seats, :check_type, :restaurant, :members
-
-  def host
-    {
-      name: object.user.full_name
-    }
-  end
+  attributes :id, :user_id, :restaurant_id, :date, :time, :number_of_seats, :check_type, :restaurant, :members
 end

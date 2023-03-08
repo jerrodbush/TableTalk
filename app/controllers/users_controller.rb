@@ -8,8 +8,7 @@ class UsersController < ApplicationController
 
   def show
     # if find_by messes stuff up we can change it back to find
-    # myUser = User.find(params[:id])
-    # render json: myUser, status: :ok
+    # myUser = User.find(session[:user_id])
     myUser = User.find_by(id: session[:user_id])
     if user
       render json: myUser, serializer: ShowUserWithResSerializer, status: :ok

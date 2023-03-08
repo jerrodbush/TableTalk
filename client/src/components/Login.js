@@ -33,10 +33,9 @@ export default function Login() {
     })
     .then(res => {
       if(res.ok){
-        console.log('winner')
         res.json().then(navigate('/home'))
       } else {
-        console.log("Error logging in.")
+        alert("Error logging in.")
       }
     })
     }
