@@ -5,7 +5,6 @@ import '../styling/signup.css';
 import ParticleBackground from 'react-particle-backgrounds'
 
 export default function Signup({updateUser}) {
-<<<<<<< HEAD
 
   //bg settings
   const settings = {
@@ -31,8 +30,6 @@ export default function Signup({updateUser}) {
       opacityTransitionTime: 10000
     }
   }
-=======
->>>>>>> a208459c115376c77105635430a16a60e0cdbe66
 
     // initialize User Context
     const userState = useContext(UserContext);
