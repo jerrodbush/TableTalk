@@ -9,6 +9,11 @@ class Restaurant < ApplicationRecord
     self.ratings.map do |rating|
       my_rating = my_rating + rating.rating
     end
-    my_rating / self.ratings.length
+    avg_rating = my_rating / self.ratings.length
+    avg_rating.round(1)
+  end
+
+  def reservation_count
+    self.reservations.length
   end
 end
