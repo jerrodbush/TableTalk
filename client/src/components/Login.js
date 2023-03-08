@@ -1,8 +1,35 @@
 import { React, useContext, useState } from 'react'
 import { UserContext } from "../context/user";
 import { useNavigate } from 'react-router-dom';
+import '../styling/login.css';
+import ParticleBackground from 'react-particle-backgrounds'
 
 export default function Login() {
+
+  //bg settings
+  const settings = {
+    canvas: {
+      canvasFillSpace: true,
+      width: 1000,
+      height: 1000,
+      useBouncyWalls: true,
+    },
+    particle: {
+      particleCount: 65,
+      color: '#CAE9FF',
+      minSize: 2,
+      maxSize: 45
+    },
+    velocity: {
+      minSpeed: .2,
+      maxSpeed: .4
+    },
+    opacity: {
+      minOpacity: 0,
+      maxOpacity: 0.6,
+      opacityTransitionTime: 10000
+    }
+  }
 
   // initialize User Context
   const userState = useContext(UserContext);
@@ -47,27 +74,30 @@ export default function Login() {
   }
 
   return (
-    <div>
-
+    <>
+    <div className="login-container">
+    <ParticleBackground settings={settings} id="background"/>
       {/* button goes top right  */}
-      <div>
-        <button>Sign Up</button>
+      <div className="nav-button-wrapper">
+        <button id="signup-btn">Sign Up</button>
       </div>
 
       {/* center above form */}
-      <div>
+      <div id="login-form-container">
+      <div className="logo-form">
         <h1>TableTalk</h1>
       </div>
 
       {/* login form */}
-      <div>
-        <form onSubmit={handleSubmit}>
+      <div id="login-form">
+        <form className="form" onSubmit={handleSubmit}>
             <input name="username" type="text" required onChange={handleChange} value={formState.username} placeholder="username"/>
             <input name="password" type="password" required onChange={handleChange} value={formState.password} placeholder="password"/>
             <button type="submit">Login</button>
         </form>
       </div>
-
     </div>
+    </div>
+  </>
   )
 }
