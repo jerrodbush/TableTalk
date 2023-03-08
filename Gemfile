@@ -34,3 +34,5 @@ end
 
 gem "active_model_serializers", "~> 0.10.12"
 gem 'faker'
+
+gem "twilio-ruby"

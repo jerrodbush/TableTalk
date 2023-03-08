@@ -33,7 +33,7 @@ export default function BusinessPage()
   const initialState = {
     check_type: 'Host pays',
     number_of_seats: '',
-    user_id: 470,
+    user_id: 700,
     restaurant_id: businessid,
     date: '',
     time: 1,

@@ -23,4 +23,7 @@ Rails.application.routes.draw do
   get '/top_rated', to: 'restaurants#top_rated'
   get '/top_reserved', to: 'restaurants#top_reserved'
   get '/popular', to: 'restaurants#popular'
+
+  post '/send_message', to: 'messaging#send_message'
+
 end

@@ -84,14 +84,19 @@ GEM
     erubi (1.12.0)
     faker (3.1.1)
       i18n (>= 1.8.11, < 2)
+    faraday (2.7.4)
+      faraday-net_http (>= 2.0, < 3.1)
+      ruby2_keywords (>= 0.0.4)
+    faraday-net_http (3.0.2)
     globalid (1.1.0)
       activesupport (>= 5.0)
     i18n (1.12.0)
       concurrent-ruby (~> 1.0)
     io-console (0.6.0)
-    irb (1.6.2)
+    irb (1.6.3)
       reline (>= 0.3.0)
     jsonapi-renderer (0.2.2)
+    jwt (2.6.0)
     loofah (2.19.1)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -103,7 +108,7 @@ GEM
     marcel (1.0.2)
     method_source (1.0.0)
     mini_mime (1.1.2)
-    minitest (5.17.0)
+    minitest (5.18.0)
     net-imap (0.3.4)
       date
       net-protocol
@@ -156,8 +161,13 @@ GEM
     rake (13.0.6)
     reline (0.3.2)
       io-console (~> 0.5)
+    ruby2_keywords (0.0.5)
     thor (1.2.1)
     timeout (0.3.2)
+    twilio-ruby (5.74.5)
+      faraday (>= 0.9, < 3.0)
+      jwt (>= 1.5, <= 2.6)
+      nokogiri (>= 1.6, < 2.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
     websocket-driver (0.7.5)
@@ -178,6 +188,7 @@ DEPENDENCIES
   puma (~> 5.0)
   rack-cors
   rails (~> 7.0.4, >= 7.0.4.2)
+  twilio-ruby
   tzinfo-data
 
 RUBY VERSION
