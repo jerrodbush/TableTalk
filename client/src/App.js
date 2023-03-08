@@ -16,19 +16,16 @@ function App()
 {
 const [user, setUser] = useState(null)
 
-  // useEffect(() => {
-  //   fetch('http://localhost:9292/authorized')
-  //   .then(res => {
-  //     if(res.ok){
-  //       console.log('iran')
-  //       res.json().then(user => setUser(user))
-  //     } else {
-  //       setUser(null)
-  //       console.log('iran2')
-  //     }
-  //   })
-  // }, [])
-  // console.log(user)
+  useEffect(() => {
+    fetch('/authorized')
+    .then(res => {
+      if(res.ok){
+        res.json().then(user => setUser(user))
+      } else {
+        setUser(null)
+      }
+    })
+  }, [])
 
   return (
     <div className="App">

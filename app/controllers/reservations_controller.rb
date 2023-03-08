@@ -6,7 +6,7 @@ rescue_from ActiveRecord::RecordNotFound, with: :res_not_found
   end
 
   def show
-    render json: Reservation.find(params[:id]), status: :ok
+    render json: Reservation.find(params[:id]), serializer: ResWithNameSerializer,status: :ok
   end
 
   def create
