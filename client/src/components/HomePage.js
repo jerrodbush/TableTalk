@@ -1,11 +1,13 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import NavBar from './NavBar';
 import '../App.css'
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import ReservationCard from './ReservationCard';
+import BusinessCard from './BusinessCard';
 
-export default function HomePage({updateUser}) {
+export default function HomePage({ updateUser })
+{
 
   const responsive = {
     desktop: {
@@ -25,9 +27,53 @@ export default function HomePage({updateUser}) {
     }
   };
 
+  const [trending, setTrending] = useState([])
+
+  useEffect(function ()
+  {
+    fetch("http://localhost:9292/top_reserved")
+      .then(function (resp)
+      {
+        return resp.json()
+      })
+      .then(function (data)
+      {
+        console.log(data)
+        return setTrending(data)
+      })
+  }, [])
+
+  const mappedTrending = trending.map(function (restaurant)
+  {
+    return <BusinessCard restaurant={restaurant} />
+  })
+
+
+  const [popular, setPopular] = useState([])
+
+  useEffect(function ()
+  {
+    fetch("http://localhost:9292/popular")
+      .then(function (resp)
+      {
+        return resp.json()
+      })
+      .then(function (data)
+      {
+        console.log(data)
+        return setPopular(data)
+      })
+  }, [])
+
+  const mappedPopular = popular.map(function (restaurant)
+  {
+    return <BusinessCard restaurant={restaurant} />
+  })
+
+
   return (
     <>
-      <NavBar updateUser={updateUser}/>
+      <NavBar updateUser={updateUser} />
       <div id="carousel-container">
         <div id="carousel-text-wrapper">
           <h3>Trending</h3>
@@ -35,17 +81,7 @@ export default function HomePage({updateUser}) {
         </div>
         <div id="carousel-wrapper">
           <Carousel responsive={responsive} additionalTransfrom={-50}>
-            <ReservationCard/>
-            <ReservationCard/>
-            <ReservationCard/>
-            <ReservationCard/>
-            <ReservationCard/>
-            <ReservationCard/>
-            <ReservationCard/>
-            <ReservationCard/>
-            <ReservationCard/>
-            <ReservationCard/>
-            <ReservationCard/>
+            {mappedTrending}
           </Carousel>
         </div>
       </div>
@@ -57,17 +93,7 @@ export default function HomePage({updateUser}) {
         </div>
         <div id="carousel-wrapper">
           <Carousel responsive={responsive} >
-            <ReservationCard/>
-            <ReservationCard/>
-            <ReservationCard/>
-            <ReservationCard/>
-            <ReservationCard/>
-            <ReservationCard/>
-            <ReservationCard/>
-            <ReservationCard/>
-            <ReservationCard/>
-            <ReservationCard/>
-            <ReservationCard/>
+            {mappedPopular}
           </Carousel>
         </div>
       </div>
@@ -78,7 +104,7 @@ export default function HomePage({updateUser}) {
           <h3 id="carousel-text-right">See More...</h3>
         </div>
         <div id="carousel-wrapper">
-          <Carousel responsive={responsive}>
+          {/* <Carousel responsive={responsive}>
             <ReservationCard/>
             <ReservationCard/>
             <ReservationCard/>
@@ -90,12 +116,12 @@ export default function HomePage({updateUser}) {
             <ReservationCard/>
             <ReservationCard/>
             <ReservationCard/>
-          </Carousel>
-          <br/>
+          </Carousel> */}
+          <br />
         </div>
       </div>
       <div id="footer" >
-          <h6>CopyRight Of Liza, Jerrod, Dylan, & Rooney</h6>
+        <h6>CopyRight Of Liza, Jerrod, Dylan, & Rooney</h6>
       </div>
     </>
   )
