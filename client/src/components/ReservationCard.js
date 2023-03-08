@@ -5,6 +5,7 @@ export default function ReservationCard( { reservations }  ) {
 
 
     const [reserveState, setReserveState] = useState();
+    
 
     console.log(reservations);
     const handleReserve = (e) => {
