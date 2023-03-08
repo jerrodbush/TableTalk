@@ -488,11 +488,11 @@ Restaurant.create(
 puts 'done seeding restaurants 🍽️'
 
 puts 'seeding 100 reservations 📆'
-100.times do Reservation.create(
+200.times do Reservation.create(
     user_id: User.all.sample.id,
     restaurant_id: Restaurant.all.sample.id,
     date: my_dates.sample,
-    time: Faker::Number.within(range: 5..11),
+    time: Faker::Number.within(range: 5..7),
     number_of_seats: Faker::Number.within(range: 2..8),
     check_type: my_check.sample
 )
