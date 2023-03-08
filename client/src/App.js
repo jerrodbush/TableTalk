@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import './App.css';
 
@@ -11,41 +11,44 @@ import ReservationsPage from './components/ReservationsPage';
 import BusinessSearch from './components/BusinessSearch';
 import ProfileSettings from './components/ProfileSettings';
 import { UserProvider } from './context/user.js';
+import { useNavigate } from 'react-router-dom';
+import { UserContext } from "./context/user";
 
 function App()
 {
+  const userState = useContext(UserContext)
 const [user, setUser] = useState(null)
 
   useEffect(() => {
     fetch('/authorized')
     .then(res => {
       if(res.ok){
-        console.log("Res OK")
-        console.log(res)
+        // console.log("Res OK")
+        // console.log(res)
         res.json().then(user => setUser(user))
       } else {
-        console.log("Res NOT")
+        // console.log("Res NOT")
         setUser(null)
       }
     })
   }, [])
 
   const updateUser = (user) => setUser(user)
-
-  if(!user) return (
-    <div className="App">
-      <UserProvider>
-          <Login updateUser={updateUser}/>
-          {/* <Signup updateUser={updateUser}/> */}
-          {/* hi, dylan! we'd like the signup/login to be a ternary and only show the login upon page load and show the signup when you click the button which will also make the login form go away. does that make sense? call me, beep me. */}
-      </UserProvider>
-    </div>
-  )
+  const navigate = useNavigate()
+  // console.log("IRan here")
+  // console.log(userState)
+  // console.log("end of Run")
+  // const frank = () => {
+  //   if (!user) return (
+  //     navigate("/")
+  //     )
+  // }
 
   return (
     <div className="App">
       <UserProvider>
         <Routes>
+        {/* {frank()} */}
           <Route
             path="/"
             element={<Login updateUser={updateUser}/>}

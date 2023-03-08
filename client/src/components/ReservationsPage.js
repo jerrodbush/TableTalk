@@ -2,8 +2,20 @@ import React, { useEffect, useState } from 'react'
 import NavBar from './NavBar'
 import RenderReservations from './RenderReservations'
 import '../styling/reservation.css'
+import ReservationCard from './ReservationCard'
 
 export default function ReservationsPage() {
+  const [reservation, setReservation] = useState([])
+
+  useEffect(() => {
+    myFunction()
+    }, [])
+  
+    const myFunction = () => {
+      fetch(`http://localhost:9292/reservations`)
+        .then( (resp) => resp.json() )
+        .then( (data) => setReservation(data) )
+    }
 
   return (
     <>
@@ -20,6 +32,7 @@ export default function ReservationsPage() {
             <option value="We Pay">We Pay</option>
           </select>
         </div>
+        <RenderReservations/>
       </div>
     </>
   )
