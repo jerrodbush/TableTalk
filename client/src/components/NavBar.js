@@ -29,12 +29,24 @@ export default function NavBar() {
   return (
     <>
       <Menu right>
-              <NavLink to="/home">Home</NavLink>
-              <NavLink to="/profile/user1">Profile</NavLink>
-              <NavLink to="/reservations">Reservations</NavLink>
-              <NavLink to="/business">Businesses</NavLink>
-              <NavLink to="/profile/user1/settings">Settings</NavLink>
-              <NavLink to="/" onClick={handleLogout}>Log Out</NavLink>
+              <div className="nav-link">
+                <NavLink to="/home">Home</NavLink>
+              </div>
+              <div className="nav-link">
+                <NavLink to="/profile/user1">Profile</NavLink>
+              </div>
+              <div className="nav-link">
+                <NavLink to="/reservations">Reservations</NavLink>
+              </div>
+              <div className="nav-link">
+                <NavLink to="/business">Businesses</NavLink>
+              </div>
+              <div className="nav-link">
+                <NavLink to="/profile/user1/settings">Settings</NavLink>
+              </div>
+              <div className="nav-link">
+                <NavLink to="/" onClick={handleLogout}>Log Out</NavLink>
+              </div>
       </Menu>
       <h1 id="logo">TableTalk</h1>
     </>
