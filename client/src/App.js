@@ -20,8 +20,11 @@ const [user, setUser] = useState(null)
     fetch('/authorized')
     .then(res => {
       if(res.ok){
+        console.log("Res OK")
+        console.log(res)
         res.json().then(user => setUser(user))
       } else {
+        console.log("Res NOT")
         setUser(null)
       }
     })

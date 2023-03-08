@@ -2,7 +2,7 @@ class ReservationsController < ApplicationController
 rescue_from ActiveRecord::RecordNotFound, with: :res_not_found
 
   def index
-    render json: Reservation.all(), status: :ok
+    render json: Reservation.limit(25), status: :ok
   end
 
   def show
