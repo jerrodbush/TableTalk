@@ -1,14 +1,29 @@
 import { React, useState } from 'react'
 import { slide as Menu } from 'react-burger-menu'
 import { NavLink } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import "../index.css"
 
 export default function NavBar() {
     const [menuState, setMenuState] = useState(false)
 
+    //allow navigation
+    const navigate = useNavigate();
+
     const handleOpen = () => {
         const newState = !menuState
         setMenuState(newState);
+    }
+
+    const handleLogout = () => {
+      fetch('http://localhost:9292/logout', {
+        method: 'DELETE',
+      })
+      .then(res => {
+        if(res.ok){
+          navigate('/')
+        }
+      })
     }
 
   return (
@@ -19,7 +34,7 @@ export default function NavBar() {
               <NavLink to="/reservations">Reservations</NavLink>
               <NavLink to="/business">Businesses</NavLink>
               <NavLink to="/profile/user1/settings">Settings</NavLink>
-              <NavLink to="/">Log Out</NavLink>
+              <NavLink to="/" onClick={handleLogout}>Log Out</NavLink>
       </Menu>
       <h1 id="logo">TableTalk</h1>
     </>
