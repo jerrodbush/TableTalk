@@ -36,7 +36,7 @@ const [user, setUser] = useState(null)
     <div className="App">
       <UserProvider>
           <Login updateUser={updateUser}/>
-          <Signup updateUser={updateUser}/>
+          {/* <Signup updateUser={updateUser}/> */}
           {/* hi, dylan! we'd like the signup/login to be a ternary and only show the login upon page load and show the signup when you click the button which will also make the login form go away. does that make sense? call me, beep me. */}
       </UserProvider>
     </div>
