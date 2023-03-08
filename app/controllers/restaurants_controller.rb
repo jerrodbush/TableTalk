@@ -9,6 +9,13 @@ class RestaurantsController < ApplicationController
     render json: myRest, status: :ok
   end
 
+  def top_rated
+    top_rated = Restaurant.all.sort_by do |rest|
+      rest.avg_rating
+    end
+    render json: top_rated.reverse
+  end
+
   private
 
   def res_not_found
