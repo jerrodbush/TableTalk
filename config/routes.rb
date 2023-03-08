@@ -21,4 +21,5 @@ Rails.application.routes.draw do
   get '/authorized', to: 'users#authenticate_show'
   get '/all_interests', to: 'interests#all'
   get '/top_rated', to: 'restaurants#top_rated'
+  get '/top_reserved', to: 'restaurants#top_reserved'
 end
