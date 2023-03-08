@@ -1,10 +1,42 @@
 import React from 'react';
 import NavBar from './NavBar';
 import '../styling/profile.css';
-// import TagCloud from 'react-tag-cloud';
+import { TagCloud } from 'react-tagcloud';
+import Carousel from 'react-multi-carousel';
+import 'react-multi-carousel/lib/styles.css';
+import ReservationCard from './ReservationCard';
+
 
 export default function ProfilePage() {
 
+  //tag cloud testing purposes
+  const data = [
+    { value: 'JavaScript', count: 38, color: "blue" },
+    { value: 'React', count: 30, color: "blue" },
+    { value: 'Nodejs', count: 28, color: "blue" },
+    { value: 'Express.js', count: 25, color: "blue" },
+    { value: 'HTML5', count: 33, color: "blue" },
+    { value: 'MongoDB', count: 18, color: "blue" },
+    { value: 'CSS3', count: 20, color: "blue" },
+  ]
+  //for carousel elements
+  const responsive = {
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 6,
+      slidesToSlide: 1, // optional, default to 1.
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 464 },
+      items: 3,
+      slidesToSlide: 3, // optional, default to 1.
+    },
+    mobile: {
+      breakpoint: { max: 464, min: 0 },
+      items: 2,
+      slidesToSlide: 2, // optional, default to 1.
+    }
+  };
   return (
     <>
       <NavBar/>
@@ -20,34 +52,53 @@ export default function ProfilePage() {
           </div>
 
           <div id="profile-header-right">
-            {/* <TagCloud 
-              style={{
-                fontFamily: 'sans-serif',
-                fontSize: 30,
-                fontWeight: 'bold',
-                fontStyle: 'italic',
-                color: () => randomColor(),
-                padding: 5,
-                width: '100%',
-                height: '100%'
-              }}
-            >
-          <div style={{fontSize: 50}}>react</div>
-          <div style={{color: 'green'}}>tag</div>
-          <div rotate={90}>cloud</div>
-        </TagCloud> */}
+              <TagCloud
+                minSize={12}
+                maxSize={35}
+                tags={data}
+                disableRandomColor={true}
+                onClick={tag => alert(`'${tag.value}' was selected!`)}
+              />
           </div>
 
         </div>
 
         <div id="reserve-wrapper-p">
             <h3>Reservations</h3>
-            {/* add carousel to profile */}
+            <Carousel responsive={responsive}>
+              <h1>Test1</h1>
+              <h1>Test1</h1>
+              <h1>Test1</h1>
+              <h1>Test1</h1>
+              <h1>Test1</h1>
+              <h1>Test1</h1>
+              <h1>Test1</h1>
+              <h1>Test1</h1>
+              <h1>Test1</h1>
+              <h1>Test1</h1>
+              <h1>Test1</h1>
+              <h1>Test1</h1>
+              <h1>Test1</h1>
+            </Carousel>
         </div>
 
         <div id="tabletalkers-wrapper">
           <h3>TableTalkers</h3>
-            {/* add carrousel to tabletalkers */}
+          <Carousel responsive={responsive}>
+              <h1>Test2</h1>
+              <h1>Test2</h1>
+              <h1>Test2</h1>
+              <h1>Test2</h1>
+              <h1>Test2</h1>
+              <h1>Test2</h1>
+              <h1>Test2</h1>
+              <h1>Test2</h1>
+              <h1>Test2</h1>
+              <h1>Test2</h1>
+              <h1>Test2</h1>
+              <h1>Test2</h1>
+              <h1>Test2</h1>
+            </Carousel>
         </div>
       </div>
     </>

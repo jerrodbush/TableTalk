@@ -30,6 +30,10 @@ canvas {
   top: 20px;
   z-index: 10;
 }
+html {
+  width: 100vw;
+  height: 100vh;
+}
 
 /* Color/shape of burger icon bars */
 .bm-burger-bars {
