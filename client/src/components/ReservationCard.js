@@ -1,7 +1,29 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import '../App.css';
 
-export default function ReservationCard() {
+export default function ReservationCard( { reservations }  ) {
+
+
+    const [reserveState, setReserveState] = useState();
+
+    console.log(reservations);
+    const handleReserve = (e) => {
+        setReserveState({
+            reservation_id: 1,
+            user_id: 1,
+            guest_check_type: "Host pays"
+        })
+        e.preventDefault();
+        fetch(`http://localhost:9292/member`,{
+        method: 'POST',
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(reserveState)
+      })
+      .then(res => res.json())
+      .then(data => console.log(data))
+    }
   return (
     <div id="reservation-card-container">
         <div id="reservation-card-image-container">
@@ -9,15 +31,15 @@ export default function ReservationCard() {
             <div id="reservation-user-info-wrapper">
                 <h5 id="top-left">Dylan Rhinehart</h5>
                 <div id="top-right">
-                    <h4>12/2/22</h4>
-                    <h5>7:30PM</h5>
+                    <h4>{reservations.date}</h4>
+                    <h5>{reservations.time}:00PM</h5>
                 </div>
             </div>
         </div>
         <div id="reservation-card-bottom-container">
-            <h3>Business Name</h3>
-            <h5>Location</h5>
-            <button>Reserve</button>
+            <h3>{reservations.restaurant.name}</h3>
+            <h5>{reservations.restaurant.address}</h5>
+            <button onClick={handleReserve}>Reserve</button>
         </div>
     </div>
   )
