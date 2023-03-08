@@ -4,6 +4,7 @@ import MapContainer from './MapContainer';
 import { useParams } from 'react-router-dom';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
+import '../App.css';
 
 export default function BusinessPage()
 {
@@ -97,7 +98,7 @@ export default function BusinessPage()
             <img src={business.rest_image} id='business-image'></img>
             <h3>{business.name} {business.price}</h3>
             <p>Address: {business.address}</p>
-            <p>Phone Number: {business.phone}</p>
+            <p>P{business.phone}</p>
             <p>Website: {business.website}</p>
           </div>
         </div>

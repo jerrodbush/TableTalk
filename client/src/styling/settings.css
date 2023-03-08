@@ -1,0 +1,14 @@
+.settings-container {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+.settings-container > h3 {
+    margin-top: 75px;
+    font-size: 45px;
+    color: black;
+}

@@ -1,30 +1,25 @@
 import React, { useEffect, useState } from 'react'
 import NavBar from './NavBar'
-import ReservationCard from './ReservationCard'
+import RenderReservations from './RenderReservations'
+import '../styling/reservation.css'
 
 export default function ReservationsPage() {
-
-  const [reservations, setReservations] = useState([])
-
-  useEffect(() => {
-    fetch(`http://localhost:9292/reservations`)
-      .then( (resp) => resp.json() )
-      .then( (data) => setReservations(data) )
-  }, [])
-
-
-
-  const renderReservations = () => {
-     return reservations.map((reservation) => {
-        <ReservationCard reservation={reservation} />
-      })
-  }
 
   return (
     <>
       <NavBar/>
-      <div className="reservation-page-container">
-          {renderReservations}
+      <div className="reservations-container">
+        <div id="top-half-reserve">
+          <h2>Reservations</h2>
+          <select>
+            <option value="All">All</option>
+            <option value="rating">Rating</option>
+            <option value="price">Price</option>
+            <option value="I Pay">I Pay</option>
+            <option value="You Pay">You Pay</option>
+            <option value="We Pay">We Pay</option>
+          </select>
+        </div>
       </div>
     </>
   )

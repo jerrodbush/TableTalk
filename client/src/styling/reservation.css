@@ -1,0 +1,30 @@
+.reservations-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+}
+
+#top-half-reserve {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    width: 100vw;
+    padding-top: 12px;
+}
+
+#top-half-reserve > h2 {
+    text-align: center;
+    font-size: 45px;
+}
+
+#top-half-reserve > select {
+    height: 30px;
+    color: black;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.15), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
+    align-self: center;
+    position: absolute;
+    right: 150px;
+}

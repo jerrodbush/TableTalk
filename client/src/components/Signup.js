@@ -1,8 +1,35 @@
 import { React, useContext, useState } from 'react'
 import { UserContext } from "../context/user";
 import { useNavigate } from 'react-router-dom';
+import '../styling/signup.css';
+import ParticleBackground from 'react-particle-backgrounds'
 
 export default function Signup({updateUser}) {
+
+  //bg settings
+  const settings = {
+    canvas: {
+      canvasFillSpace: true,
+      width: 1000,
+      height: 1000,
+      useBouncyWalls: true,
+    },
+    particle: {
+      particleCount: 65,
+      color: '#CAE9FF',
+      minSize: 2,
+      maxSize: 45
+    },
+    velocity: {
+      minSpeed: .2,
+      maxSpeed: .4
+    },
+    opacity: {
+      minOpacity: 0,
+      maxOpacity: 0.6,
+      opacityTransitionTime: 10000
+    }
+  }
 
     // initialize User Context
     const userState = useContext(UserContext);
@@ -80,7 +107,7 @@ export default function Signup({updateUser}) {
     }
     //needs styling
     const form1 = <>
-       <form onSubmit={handleSubmitNext}>
+       <form className="form" onSubmit={handleSubmitNext}>
             <input name="first_name" type="text" required onChange={handleChange} value={formState.first_name} placeholder="first_name"/>
             <input name="last_name" type="text" required onChange={handleChange} value={formState.last_name} placeholder="last_name"/>
             <input name="username" type="text"  required onChange={handleChange} value={formState.username} placeholder="username"/>
@@ -91,42 +118,20 @@ export default function Signup({updateUser}) {
     </>
     //needs styling
     const form2 = <>
-        <form onSubmit={handleSubmitNext}>
+        <form className="form" onSubmit={handleSubmitNext}>
             <input name="age" required type="number" onChange={handleChange} value={formState.age} placeholder="Age"/>
             <input name="user_image" required type="text" onChange={handleChange} value={formState.user_image} placeholder="Profile Picture Link"/>
             <input name="phone" required type="text" onChange={handleChange} value={formState.phone} placeholder="Phone Number"/>
             <input name="location" required type="text" onChange={handleChange} value={formState.location} placeholder="City or Town"/>
-            <div>
-              <button onClick={handleSubmit}>Submit</button>
-            </div>
+            <button onClick={handleSubmit}>Submit</button>
         </form>
     </>
-
-    //needs styling
-    // const form3 = <>
-    //   {/* interests will be pulled from database so create a for loop and display interests */}
-    //     <div>
-    //       <button>Interest 1</button>
-    //       <button>Interest 2</button>
-    //       <button>Interest 3</button>
-    //       <button>Interest 4</button>
-    //       <button>Interest 5</button>
-    //       <button>Interest 6</button>
-    //       <button>Interest 7</button>
-    //     </div>
-
-    //     <div>
-    //       <button onClick={handleSubmit}>Submit</button>
-    //     </div>
-    // </>
 
     const renderProgression = () => {
       if (progression.index === 1) {
         return form1
       } else if (progression.index === 2) {
         return form2
-      // } else if (progression.index === 3) {
-      //   return form3
       } else {
         return <><h1>Something went wrong with the form</h1></>
       }
@@ -140,7 +145,7 @@ export default function Signup({updateUser}) {
     }
     const renderBackBtn = () => {
       if(progression.index !== 1) {
-      return <div>
+      return <div className="nav-button-wrapper-2">
         <button onClick={handleGoBack} >Go Back</button>
       </div>
       }
@@ -148,30 +153,31 @@ export default function Signup({updateUser}) {
         return null
       }
       else {
-        return <div>
+        return <div className="nav-button-wrapper-2">
               <button onClick={setProgression({index: 1})}>Refresh Form</button>
           </div>
       }
     }
 
   return (
-    <div>
-      
+    <div className="signup-container">
+      <ParticleBackground settings={settings}/>
       {renderBackBtn()}
       {/* button goes top right  */}
-      <div>
-        <button>Login</button>
+      <div className="nav-button-wrapper">
+        <button onClick={() => navigate('/')}>Login</button>
       </div>
-
+      <div id="content-wrapper">
       {/* center above form */}
-      <div>
+      <div className="logo-form">
         <h1>TableTalk</h1>
       </div>
 
       {/* login form */}
-      <div id="form">
+      <div id="signup-form">
         {renderProgression()}
       </div>
+    </div>
     </div>
   )
 }
