@@ -74,12 +74,11 @@ export default function Login({updateUser}) {
     .then(res => {
       if(res.ok){
         res.json().then(obj => {
-          console.log(obj)
+          // console.log(obj)
           updateUserState(obj)
           updateUser(obj)
-          console.log(userState)
-        }
-        )
+          // console.log(userState)
+        })
         .then(navigate('/business/1'))
       } else {
         // alert("Error logging in.")

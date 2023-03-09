@@ -9,18 +9,15 @@ export default function RenderReservations() {
         .then( (resp) => resp.json() )
         .then( (data) => setReservation(data) )
     }, [])
-  
-    console.log(reservation)
-  
-    const renderReservations = () => {
-       reservation.map((item) => {
-          return <ReservationCard reservation={item} />
-        })
-    }
+
+    const renderReservations = reservation.map((item) => {
+      return <ReservationCard reservations={item} />
+    })
+
   return (
     <>
         <div>
-
+          {renderReservations}
         </div>
     </>
   )

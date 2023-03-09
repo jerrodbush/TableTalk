@@ -2,12 +2,9 @@ import React, {useState, useEffect} from 'react'
 import '../App.css';
 
 export default function ReservationCard( { reservations }  ) {
-
-
+  
     const [reserveState, setReserveState] = useState();
-    
 
-    console.log(reservations);
     const handleReserve = (e) => {
         setReserveState({
             reservation_id: 1,
@@ -15,7 +12,7 @@ export default function ReservationCard( { reservations }  ) {
             guest_check_type: "Host pays"
         })
         e.preventDefault();
-        fetch(`http://localhost:9292/member`,{
+        fetch(`http://localhost:9292/members`,{
         method: 'POST',
         headers: {
           "content-type": "application/json",
@@ -23,8 +20,8 @@ export default function ReservationCard( { reservations }  ) {
         body: JSON.stringify(reserveState)
       })
       .then(res => res.json())
-      .then(data => console.log(data))
     }
+
   return (
     <div id="reservation-card-container">
         <div id="reservation-card-image-container">
