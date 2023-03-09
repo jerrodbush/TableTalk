@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import NavBar from './NavBar'
 import MapContainer from './MapContainer';
 import { useParams } from 'react-router-dom';
@@ -6,10 +6,15 @@ import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import '../App.css';
 import  {IoGlobe} from "react-icons/io5";
+import {UserContext} from '../context/user.js';
 
 
 export default function BusinessPage()
+
 {
+
+   // initialize User Context
+   const { userState, setUserState } = useContext(UserContext);
 
   const responsive = {
     desktop: {
@@ -64,7 +69,6 @@ export default function BusinessPage()
       })
       .then(function (data)
       {
-        console.log(data)
         return setBusiness(data)
       })
   }, [])

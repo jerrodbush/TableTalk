@@ -3,6 +3,7 @@ import { UserContext } from "../context/user";
 import { useNavigate } from 'react-router-dom';
 import '../styling/login.css';
 import ParticleBackground from 'react-particle-backgrounds'
+import '../context/user.js';
 
 export default function Login({updateUser}) {
 
@@ -32,13 +33,15 @@ export default function Login({updateUser}) {
   }
 
   // initialize User Context
-  const userState = useContext(UserContext);
+  const { userState, setUserState } = useContext(UserContext);
+ 
+
+
   const [error, setError] = useState([])
   //allow navigation
   const navigate = useNavigate();
-
-  // update global state of page to current page
-  userState.page = "login";
+  
+  console.log(userState);
 
   //Form State
   const initialState = {
@@ -50,16 +53,18 @@ export default function Login({updateUser}) {
   const [formState, setFormState] = useState(initialState);
 
   const updateUserState = (obj) => {
-    userState.page = 'home'
-    userState.isLoggedIn = true
-    userState.user_id = obj.id
-    userState.full_name = obj.full_name
-    userState.phone = obj.phone
-    userState.age = obj.age
-    userState.username = obj.username
-    userState.email = obj.email
-    userState.location = obj.location
-    userState.user_image = obj.user_image
+    setUserState({
+      page: 'home',
+      isLoggedIn: true,
+      user_id: obj.id,
+      full_name: obj.full_name,
+      phone: obj.phone,
+      age: obj.age,
+      username: obj.username,
+      email: obj.email,
+      location: obj.location,
+      user_image: obj.user_image,
+    })
   }
 
   //handle form submission
