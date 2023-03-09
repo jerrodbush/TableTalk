@@ -13,14 +13,14 @@ class RestaurantsController < ApplicationController
     top_rated = Restaurant.all.sort_by do |rest|
       rest.avg_rating
     end
-    render json: top_rated.reverse
+    render json: top_rated.reverse.first(5)
   end
 
   def top_reserved
     top_reserved = Restaurant.all.sort_by do |rest|
       rest.reservation_count
     end
-    render json: top_reserved.reverse
+    render json: top_reserved.reverse.first(5)
   end
 
   private
