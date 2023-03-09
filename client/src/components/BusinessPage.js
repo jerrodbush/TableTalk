@@ -5,6 +5,8 @@ import { useParams } from 'react-router-dom';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import '../App.css';
+import  {IoGlobe} from "react-icons/io5";
+
 
 export default function BusinessPage()
 {
@@ -12,18 +14,18 @@ export default function BusinessPage()
   const responsive = {
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
-      items: 6,
+      items: 3,
       slidesToSlide: 1, // optional, default to 1.
     },
     tablet: {
       breakpoint: { max: 1024, min: 464 },
-      items: 3,
-      slidesToSlide: 3, // optional, default to 1.
+      items: 2,
+      slidesToSlide: 1, // optional, default to 1.
     },
     mobile: {
       breakpoint: { max: 464, min: 0 },
-      items: 2,
-      slidesToSlide: 2, // optional, default to 1.
+      items: 1,
+      slidesToSlide: 1, // optional, default to 1.
     }
   };
 
@@ -86,7 +88,7 @@ export default function BusinessPage()
 
   const mappedTimes = initialTimes.map(function (time)
   {
-    return <button onClick={() => handleClick(time)}>{time}</button>
+    return <button id="time-carousel-btn" onClick={() => handleClick(time)}>{time}</button>
   })
 
   return (
@@ -96,34 +98,38 @@ export default function BusinessPage()
         <div className='businessTopContainer'>
           <div className='business-details'>
             <img src={business.rest_image} id='business-image'></img>
-            <h3>{business.name} {business.price}</h3>
-            <p>Address: {business.address}</p>
-            <p>P{business.phone}</p>
-            <p>Website: {business.website}</p>
+            
+            <p id="price-indicator">{business.price}</p>
+            <a  id="website" href={business.website}><IoGlobe className="icon" size="30px"/></a>
+            <h3 id="business-name">{business.name}</h3>
+            <h4 id="business-address">{business.address}</h4>
+            <a href={`TEL:` + business.phone}><p id="phone-num">{business.phone}</p></a>
           </div>
+          <div className="reserve-form-container">
+              <form onSubmit={handleSubmit}>
+              <input type="date" id='date-input' name='date' value={formState.date} onChange={handleChange}></input>
+              <select onChange={handleChange} name="check_type">
+                <option value="Host pays">I pay</option>
+                <option value="Members pay">You pay</option>
+                <option value="Split check">Split check</option>
+              </select>
+              <label for="party-size">Party Size: </label>
+              <input type="number" id='party-size' name='number_of_seats' onChange={handleChange}></input>
+            </form>
+          </div>
+
         </div>
         <div className='businessMapContainer'>
-          <MapContainer business={business} longitude={business.longitude} latitude={business.latitude} />
-          Container 2
+          <MapContainer  className="map-container" business={business} longitude={business.longitude} latitude={business.latitude} />
         </div>
       </div>
       <div className='bottomBusinessContainer'>
-        <form onSubmit={handleSubmit}>
-          <input type="date" id='date' name='date' value={formState.date} onChange={handleChange}></input>
-          <label for="party-size">Party Size: </label>
-          <input type="number" id='party-size' name='number_of_seats' onChange={handleChange}></input>
-          <select onChange={handleChange} name="check_type">
-            <option value="Host pays">I pay</option>
-            <option value="Members pay">You pay</option>
-            <option value="Split check">Split check</option>
-          </select>
-          <button type='submit'>Make Reservation</button>
-        </form>
-        <div id="carousel-wrapper">
-          <Carousel responsive={responsive} additionalTransfrom={-50}>
+        <div id="carousel-wrapper-business">
+          <Carousel showArrows={false} partialVisbile={false} centerMode={true} responsive={responsive} itemClass="business-times-car">
             {mappedTimes}
           </Carousel>
         </div>
+        <button  id="reserve-btn"type='submit'>Reserve</button>
       </div>
     </>
   )

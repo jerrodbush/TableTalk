@@ -253,7 +253,7 @@ button {
 }
 
 .businessContainer {
-  background: pink;
+  background: #5FA8D3;
   height: 50vh;
   width: 98vw;
   padding: 0.5em;
@@ -264,45 +264,202 @@ button {
   flex-wrap: wrap;
 
   justify-content: center;
+  padding-top: 50px;
 }
 
 .businessTopContainer {
-  background: lightblue;
-  margin: 0.5em;
+  margin: 0px;
   width: 40%;
+  height: auto;
   justify-content: center;
+  padding: 0px;
+  position: relative;
+}
+
+.businessTopContainer > * {
+  background-color: lightblue;
 }
 
 .businessMapContainer {
-  background: lightblue;
+  background: #5FA8D3;
   margin: 0.5em;
   width: 40%;
+  margin-left: 22px;
+  border-radius: 8px;
+}
+
+.map-container {
+  border-radius: 8px;
 }
 
 .bottomBusinessContainer {
   height: 35vh;
   width: 98vw;
-  background-color: pink;
+  background-color: #5FA8D3;
   padding: 0.5em;
+  margin-top: 12px;
+}
+
+#carousel-wrapper-business {
+  display: grid;
+  margin-top: -25px;
+  padding: 0px;
+  width: 25vw;
+  left: 180px;
+
+}
+
+#time-carousel-btn {
+  width: 45px;
+  border-radius: 15px;
+}
+
+#business-times-car {
+  margin: 0px;
+  margin-top: -30px;
 }
 
 #business-image {
   height: 250px;
+  margin-top: 0px;
   margin-bottom: 5px;
-  /* width: 50px; */
-
+   border-top-right-radius: 8px;
+   border-top-left-radius: 8px;
 }
 
 .business-details {
-  justify-content: center;
-  margin: auto 0;
+  justify-content: center top;
+  margin: 0;
   display: flex;
   flex-direction: column;
   text-align: center;
   max-height: 100%;
+  box-shadow: 0px 0px 3px 2px #000000;
+  height: auto;
+  border-radius: 8px;
+  position: relative;
+  
 }
+
+
+
+#price-indicator{
+  color: black;
+  font-weight: 900;
+  background-color: #CAE9FF;
+  width: 50px;
+  border-radius: 30px;
+  padding: 2px;
+  position: absolute;
+  top: 10px;
+  right: 16px;
+  box-shadow: 0px 0px 3px 2px #000000;
+}
+
 
 .business-details>* {
   padding: 0;
   margin: 0;
+}
+
+#phone-num {
+  text-decoration: none;
+  color: black;
+  font-size: 16px;
+  font-weight: 900;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  padding: 0px;
+  margin: 0px;
+  text-align: left;
+  padding-left: 15px;
+  padding-top: 4px;
+  padding-bottom: 5px;
+}
+
+#phone-num:hover {
+  color: White;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+#business-name {
+  font-size: 28px;
+  font-weight: 800;
+  text-align: left;
+  padding-left: 15px;
+  line-height: 24px;
+}
+
+#business-address {
+  text-align: left;
+  width: 200px;
+  padding-left: 15px;
+  font-size: 13px;
+  padding-top: 6px;
+}
+
+#website {
+  color: #1B4965;
+  width: 25px;
+  height: 25px;
+  align-self: end;
+  padding-right: 10px;
+  margin-bottom: -20px;
+  z-index: 10;
+}
+
+#website:hover {
+  color: white;
+}
+
+.reserve-form-container {
+  background-color: #5FA8D3;
+  height: auto;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.reserve-form-container > form {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+
+.reserve-form-container > form > * {
+  margin-right: 5px;
+  height: 40px;
+}
+
+
+#reserve-btn {
+  margin: 10px;
+  margin-left: 100px;
+  width: 200px;
+  justify-self: center;
+  align-self: center;
+}
+
+label {
+  font-size: 12px;
+  font-weight: 800;
+
+}
+
+#date-input {
+  border-radius: 8px;
+  height: 40px;
+}
+#party-size {
+  width: 35px;
+  border-radius: 8px;
+  padding-left: 3px;
+}
+
+select {
+  border-radius: 8px;
+
 }
