@@ -22,4 +22,5 @@ Rails.application.routes.draw do
   get '/all_interests', to: 'interests#all'
   get '/top_rated', to: 'restaurants#top_rated'
   get '/top_reserved', to: 'restaurants#top_reserved'
+  get '/popular', to: 'restaurants#popular'
 end
