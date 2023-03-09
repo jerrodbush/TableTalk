@@ -488,11 +488,11 @@ Restaurant.create(
 puts 'done seeding restaurants 🍽️'
 
 puts 'seeding 100 reservations 📆'
-100.times do Reservation.create(
+200.times do Reservation.create(
     user_id: User.all.sample.id,
     restaurant_id: Restaurant.all.sample.id,
     date: my_dates.sample,
-    time: Faker::Number.within(range: 5..11),
+    time: Faker::Number.within(range: 5..7),
     number_of_seats: Faker::Number.within(range: 2..8),
     check_type: my_check.sample
 )
@@ -513,7 +513,7 @@ end
 puts 'done seeding comments 🗯️'
 
 puts 'seeding 300 ratings ⭐️'
-300.times do Rating.create(user_id: User.all.sample.id, restaurant_id: Restaurant.all.sample.id, rating: Faker::Number.within(range: 3..5))
+300.times do Rating.create(user_id: User.all.sample.id, restaurant_id: Restaurant.all.sample.id, rating: Faker::Number.within(range: 4..5))
 end
 puts 'done seeding ratings ⭐️'
 
@@ -525,11 +525,11 @@ my_number = 0
 end
 puts 'done seeding cuisines 🥙'
 
-puts 'seeding members 🥙'
+puts 'seeding members 👯‍♀️'
 my_number = 0
 150.times do
     Member.create(user_id: User.all.sample.id, reservation_id: Reservation.all.sample.id, guest_check_type: my_check.sample)
 end
-puts 'done members 🥙'
+puts 'done members 👯‍♀️'
 
 puts 'done seeding all data ✅'

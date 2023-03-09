@@ -9,6 +9,21 @@ class RestaurantsController < ApplicationController
     render json: myRest, status: :ok
   end
 
+  def top_rated
+    top_rated = Restaurant.all.sort_by(&:avg_rating)
+    render json: top_rated.reverse.first(5), status: :ok
+  end
+
+  def top_reserved
+    top_reserved = Restaurant.all.sort_by(&:reservation_count)
+    render json: top_reserved.reverse.first(5), status: :ok
+  end
+
+  def popular
+    popular = Restaurant.all.sort_by{ |rest| [rest.avg_rating, rest.reservation_count] }
+    render json: popular.reverse.first(10)
+  end
+
   private
 
   def res_not_found

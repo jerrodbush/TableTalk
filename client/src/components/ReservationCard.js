@@ -1,13 +1,11 @@
 import React, {useState, useEffect} from 'react'
 import '../App.css';
+import '../styling/reservationCard.css'
 
 export default function ReservationCard( { reservations }  ) {
-
-
+  
     const [reserveState, setReserveState] = useState();
-    
 
-    console.log(reservations);
     const handleReserve = (e) => {
         setReserveState({
             reservation_id: 1,
@@ -15,7 +13,7 @@ export default function ReservationCard( { reservations }  ) {
             guest_check_type: "Host pays"
         })
         e.preventDefault();
-        fetch(`http://localhost:9292/member`,{
+        fetch(`http://localhost:9292/members`,{
         method: 'POST',
         headers: {
           "content-type": "application/json",
@@ -23,16 +21,17 @@ export default function ReservationCard( { reservations }  ) {
         body: JSON.stringify(reserveState)
       })
       .then(res => res.json())
-      .then(data => console.log(data))
     }
+
   return (
     <div id="reservation-card-container">
         <div id="reservation-card-image-container">
-            <img src="http://placehold.it/250X250"/>
+            <img src={reservations.restaurant.rest_image}/>
             <div id="reservation-user-info-wrapper">
                 <h5 id="top-left">Dylan Rhinehart</h5>
+                <h6 id="top-left-check">{reservations.check_type}</h6>
                 <div id="top-right">
-                    <h4>{reservations.date}</h4>
+                    <h4 id="card-date">{reservations.date}</h4>
                     <h5>{reservations.time}:00PM</h5>
                 </div>
             </div>

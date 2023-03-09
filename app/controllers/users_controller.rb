@@ -7,19 +7,24 @@ class UsersController < ApplicationController
   end
 
   def show
-    # if find_by messes stuff up we can change it back to find
-    # myUser = User.find(params[:id])
-    # render json: myUser, status: :ok
-    myUser = User.find_by(id: session[:user_id])
-    if user
-      render json: myUser, serializer: ShowUserWithResSerializer, status: :ok
-    else
-      render json: {error: "Not authorized."}, status: 401
-    end
+    myUser = User.find(params[:id])
+    render json: myUser, status: :ok
+    
+    #Try number 2
+    # user = User.find_by(id: session[:user_id])
+    # if user
+    #   render json: user
+    # else
+    #   render json: { error: "Not authorized" }, status: :unauthorized
+    # end
+
+    #Try number 3
+    # render json: @current_user
   end
 
   def create
     newUser = User.create!(strong_params)
+    session[:user_id] = newUser.id
     render json: newUser, status: :created
   end
 
@@ -36,6 +41,15 @@ class UsersController < ApplicationController
     User.find(params[:id]).destroy!
     head :no_content
   end
+  #MOVED TO APPLICATION CONTROLER
+  # def authenticate_show
+  #   myUser = User.find_by(id: session[:user_id])
+  #   if user
+  #     render json: myUser, serializer: ShowUserWithResSerializer, status: :ok
+  #   else
+  #     render json: {error: "Not authorized."}, status: 401
+  #   end
+  # end
 
   private
 

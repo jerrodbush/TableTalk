@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import NavBar from './NavBar'
+import '../styling/settings.css'
 
 export default function ProfileSettings() {
 
@@ -32,7 +33,9 @@ export default function ProfileSettings() {
     <>
       <NavBar/>
       <div className="settings-container">
-        <form onSubmit={handleSubmit}>
+        <h3>Settings</h3>
+
+        <form className="form" onSubmit={handleSubmit}>
             <input name="first_name" type="text" onChange={handleChange} value={formState.first_name} placeholder="First Name"/>
             <input name="last_name" type="text" onChange={handleChange} value={formState.last_name} placeholder="Last Name"/>
             <input name="username" type="text"  onChange={handleChange} value={formState.username} placeholder="Username"/>

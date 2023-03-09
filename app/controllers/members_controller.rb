@@ -14,7 +14,7 @@ class MembersController < ApplicationController
     newMember = Member.create!(strong_params)
     render json: newMember, status: :created
   end
-  
+
   private
 
   def strong_params
