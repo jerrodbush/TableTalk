@@ -1,24 +1,23 @@
-import React from 'react';
+import { React, useContext, useState, useEffect } from 'react';
 import NavBar from './NavBar';
 import '../styling/profile.css';
 import { TagCloud } from 'react-tagcloud';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import ReservationCard from './ReservationCard';
+import '../context/user.js';
+import { UserContext } from "../context/user";
 
 
 export default function ProfilePage() {
 
-  //tag cloud testing purposes
-  const data = [
-    { value: 'JavaScript', count: 38, color: "blue" },
-    { value: 'React', count: 30, color: "blue" },
-    { value: 'Nodejs', count: 28, color: "blue" },
-    { value: 'Express.js', count: 25, color: "blue" },
-    { value: 'HTML5', count: 33, color: "blue" },
-    { value: 'MongoDB', count: 18, color: "blue" },
-    { value: 'CSS3', count: 20, color: "blue" },
-  ]
+  // initialize User Context
+  const { userState, setUserState } = useContext(UserContext);
+
+  const [userInfo, setUserInfo] = useState([]);
+
+  const [interests, setInterestState] = useState([]);
+
   //for carousel elements
   const responsive = {
     desktop: {
@@ -37,6 +36,33 @@ export default function ProfilePage() {
       slidesToSlide: 2, // optional, default to 1.
     }
   };
+
+  console.log(userState);
+
+  useEffect(() => {
+    fetch(`http://localhost:9292/users/${userState.user_id}`)
+    .then(res => res.json())
+    .then(obj => setUserInfo(obj))
+    .then(console.log(userInfo))
+  }, [])
+
+   //tag cloud testing purposes
+   const data = [
+    { value: 'JavaScript', count: 38, color: "blue" }
+  ]
+
+  const userInterests = userInfo.my_interests
+
+  const renderInterests = () => {
+    if (userInterests !== undefined) {
+      userInterests.map(item => {
+        
+      })
+    } else if (userInterests === undefined) {
+      
+    }
+  }
+
   return (
     <>
       <NavBar/>
@@ -44,10 +70,10 @@ export default function ProfilePage() {
         <div id="profile-header">
 
           <div id="profile-header-left">
-            <img id="pfp" src="http://placehold.it/100X100"/>
+            <img id="pfp" src={userState.user_image}/>
             <div id="user-info">
-              <h2>Dylan Rhinehart</h2>
-              <h4>Visalia,Ca</h4>
+              <h2>{userState.full_name}</h2>
+              <h4>{userState.location}</h4>
             </div>
           </div>
 
@@ -66,19 +92,7 @@ export default function ProfilePage() {
         <div id="reserve-wrapper-p">
             <h3>Reservations</h3>
             <Carousel responsive={responsive}>
-              <h1>Test1</h1>
-              <h1>Test1</h1>
-              <h1>Test1</h1>
-              <h1>Test1</h1>
-              <h1>Test1</h1>
-              <h1>Test1</h1>
-              <h1>Test1</h1>
-              <h1>Test1</h1>
-              <h1>Test1</h1>
-              <h1>Test1</h1>
-              <h1>Test1</h1>
-              <h1>Test1</h1>
-              <h1>Test1</h1>
+              <p>Add Reservations</p>
             </Carousel>
         </div>
 
