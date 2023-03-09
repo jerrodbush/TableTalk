@@ -513,7 +513,7 @@ end
 puts 'done seeding comments 🗯️'
 
 puts 'seeding 300 ratings ⭐️'
-300.times do Rating.create(user_id: User.all.sample.id, restaurant_id: Restaurant.all.sample.id, rating: Faker::Number.within(range: 3..5))
+300.times do Rating.create(user_id: User.all.sample.id, restaurant_id: Restaurant.all.sample.id, rating: Faker::Number.within(range: 4..5))
 end
 puts 'done seeding ratings ⭐️'
 
