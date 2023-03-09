@@ -97,9 +97,11 @@ export default function BusinessPage()
           <div className='business-details'>
             <img src={business.rest_image} id='business-image'></img>
             <h3>{business.name} {business.price}</h3>
-            <p>Address: {business.address}</p>
-            <p>P{business.phone}</p>
-            <p>Website: {business.website}</p>
+            <p><b>Cuisine:</b> {business.cuisines}</p>
+            <p><b>Address:</b> {business.address}</p>
+            <p><b>P:</b> {business.phone}</p>
+            <p><a href={business.website}>Website</a></p>
+            <p><b>Rating:</b> {business.avg_rating} ⭐️</p>
           </div>
         </div>
         <div className='businessMapContainer'>
