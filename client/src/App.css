@@ -149,6 +149,7 @@ button {
   flex-direction: column;
   justify-content: center;
   align-content: center;
+  margin: 15px;
 }
 
 #reservation-card-image-container {
@@ -168,6 +169,32 @@ button {
   position: absolute;
   top: 8px;
   left: 16px;
+  background-color:  rgba(0,0,0,.7);
+  border-radius: 15%;
+  color: white;
+  padding: 5px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+#top-left-check {
+  position: absolute;
+  top: 27px;
+  left: 25px;
+  background-color:  rgba(30,144,255,.7);
+  border-radius: 15%;
+  color: white;
+  padding: 5px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+#card-date {
+  background-color: rgba(0,0,0,.7);
+  border-radius: 15%;
+  color: white;
 }
 
 #top-right {
@@ -219,17 +246,18 @@ button {
 }
 
 #reservation-card-bottom-container>*:last-child {
-  position: relative;
-  left: 90px;
-  bottom: 20px;
+  justify-self: center;
 }
 
 #reservation-card-bottom-container>button {
   background-color: #1B4965;
   color: white;
   height: 30px;
-  width: 85px;
+  margin-top: 10px;
+  margin-left: 25%;
+  width: 50%;
   border: none;
+  text-align: center;
 }
 
 #reservation-card-bottom-container>button:hover {
@@ -462,4 +490,13 @@ label {
 select {
   border-radius: 8px;
 
+}
+
+#reservation-list-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100vw;
+  
+  gap: 15px;
 }
