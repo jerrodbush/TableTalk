@@ -18,7 +18,8 @@ Rails.application.routes.draw do
 
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
-  get '/authorized', to: 'users#authenticate_show'
+  get '/me', to: 'users#show'
+  get '/authorized', to: 'application#authorize'
   get '/all_interests', to: 'interests#all'
   get '/top_rated', to: 'restaurants#top_rated'
   get '/top_reserved', to: 'restaurants#top_reserved'
