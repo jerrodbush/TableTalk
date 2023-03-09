@@ -1,5 +1,5 @@
 class UserSerializer < ActiveModel::Serializer
-  attributes :id, :full_name, :phone, :age, :username, :email, :location, :password_digest, :user_image, :dinner_partners, :my_interests
+  attributes :id, :full_name, :phone, :age, :username, :email, :location, :password_digest, :user_image, :dinner_partners, :my_interests, :reservations
 
   def dinner_partners
     object.reservations.map do |res|
