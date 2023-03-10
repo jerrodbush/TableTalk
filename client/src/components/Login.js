@@ -82,7 +82,7 @@ export default function Login({updateUser}) {
         user_image: ''
       })
     }
-}, [10])
+}, [1])
 
   //handle form submission
   const handleSubmit = (e) => {

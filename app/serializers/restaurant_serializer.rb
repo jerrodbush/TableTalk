@@ -8,7 +8,7 @@ class RestaurantSerializer < ActiveModel::Serializer
         date: reservation.date,
         time: "#{reservation.time}0pm",
         party_size: reservation.number_of_seats,
-        members: dinner_partners
+        # members: dinner_partners
       }
     end
   end

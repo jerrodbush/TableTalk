@@ -20,7 +20,7 @@ export default function HomePage({ updateUser })
   useEffect(() =>{
     if (userState.isLoggedIn === true) {
       setUserState({...userState,
-        page: 'Home',
+        page: 'home',
       })
     }
 }, [10])
