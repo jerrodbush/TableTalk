@@ -30,7 +30,7 @@ export default function ReservationCard( { reservations }  ) {
       .then()
     }
 
-    console.log(reservations);
+    // console.log(reservations);
 
   return (
     <div id="reservation-card-container">

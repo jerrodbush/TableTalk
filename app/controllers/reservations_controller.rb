@@ -14,6 +14,8 @@ rescue_from ActiveRecord::RecordNotFound, with: :res_not_found
 
   def create
     newRes = Reservation.create!(strong_params)
+    # account_sid = put key here
+    # auth_token = put key here
     client = Twilio::REST::Client.new(account_sid, auth_token)
     message = client.messages.create(
         to: "+13129091825",

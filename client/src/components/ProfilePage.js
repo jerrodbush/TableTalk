@@ -80,8 +80,13 @@ export default function ProfilePage() {
   // console.log(userInfo);
 
   const renderReservations =  userInfo.reservations && userInfo.reservations.length ? userInfo.reservations.map((reservation) => {
-    return <ReservationCard2 reservations={reservation} />
+    return <ReservationCard2 reservations={reservation}/>
   }) : <p>No reservations</p>
+
+  // const handleDeleteReservation = (deletedReservation) => {
+  //   const deletedReservationList = userInfo.reservations.filter(reservation => reservation.id !== deletedReservation.id)
+  //   setUserInfo(userInfo.deletedReservationList)
+  // }
 
   // const talkers = userInfo.dinner_partners && userInfo.dinner_partners.length ? userInfo.dinner_partners.map(item => {
   //   return <div><h3>{item.first_name}</h3></div>

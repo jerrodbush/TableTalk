@@ -15,12 +15,10 @@ export default function ReservationCard2( { reservations }  ) {
             method: 'DELETE',
         })
         // navigate('/home')
-        alert("You have successful deleted this reservation.")
-        // .then(() => {
-        //     fetch(`http://localhost:9292/reservations`)
-        //     .then(r => r.json())
-        // })
-        .then(navigate('/profile/username'))
+        // alert("You have successful deleted this reservation.")
+        .then(console.log(reservations))
+        // (reservation => reservation.id === reservation.id))
+        // .then(navigate('/profile/username'))
     }
 
 return (
