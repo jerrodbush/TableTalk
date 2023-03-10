@@ -131,7 +131,7 @@ export default function BusinessPage()
   const renderReservations = business.reservations && business.reservations.length ? business.reservations.map((res) => {
       return <ReservationCard3 reservations={res}/>
   }) : <div>No Reservations</div>
-
+   console.log(business);
   return (
    userState.isLoggedIn ? <>
       <NavBar />
@@ -145,7 +145,7 @@ export default function BusinessPage()
             <h3 id="business-name">{business.name}</h3>
             <h4 id="business-address">{business.address}</h4>
             <a href={`TEL:` + business.phone}><p id="phone-num">{business.phone}</p></a>
-            <p>{business.cuisines}</p>
+            <p>{business.cuisines[0].cuz_name}</p>
             <p>{business.avg_rating}</p>
           </div>
           <div className="reserve-form-container">

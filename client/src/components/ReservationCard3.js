@@ -35,7 +35,6 @@ export default function ReservationCard3( { reservations }  ) {
             <div>
                 <h5>{reservations.host}</h5>
                 <h6>{reservations.check_type}</h6>
-                <h6>{"Seats: " + (reservations.members.length + 1) + '/' + reservations.party_size}</h6>
                 <div>
                     <h4>{reservations.date}</h4>
                     <h5>{reservations.time}</h5>
