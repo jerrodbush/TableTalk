@@ -1,5 +1,5 @@
 class RestaurantSerializer < ActiveModel::Serializer
-  attributes :id, :name, :phone, :address, :price, :open_time, :close_time, :capacity, :rest_image, :website, :cuisines, :longitude, :latitude, :avg_rating, :reservation_count, :reservation_with_seats_available, :reservations
+  attributes :id, :name, :phone, :address, :price, :open_time, :close_time, :capacity, :rest_image, :website, :longitude, :latitude, :avg_rating, :reservation_count, :reservation_with_seats_available, :reservations
 
   def reservations
     object.reservations.map do |reservation|
@@ -21,12 +21,6 @@ class RestaurantSerializer < ActiveModel::Serializer
       end
     end
     reservation_members
-  end
-
-  def cuisines
-    object.cuisines.map do |cuis|
-      cuis.cuz_name
-    end
   end
 
 end
