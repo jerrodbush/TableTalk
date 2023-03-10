@@ -29,7 +29,7 @@ export default function BusinessPage()
   const responsive = {
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
-      items: 3,
+      items: 5,
       slidesToSlide: 1, // optional, default to 1.
     },
     tablet: {
@@ -124,8 +124,9 @@ export default function BusinessPage()
   // })
 
   const renderTimes = business.totalHours && business.totalHours.length ? business.totalHours.map((time) => {
-    return <button id="time-carousel-btn" onClick={() => handleClick(time)}>{time}</button>
+    return <button name="time" value={time} id="time-carousel-btn" onClick={() => handleClick(time)}>{time}</button>
   }) : <p>Something Went Wrong</p>
+
   console.log(business);
 
   const renderReservations = business.reservations && business.reservations.length ? business.reservations.map((res) => {
@@ -139,8 +140,8 @@ export default function BusinessPage()
         <div className='businessTopContainer'>
           <div className='business-details'>
             <img src={business.rest_image} id='business-image'></img>
-            <p id="top-left">{business.cuisines[0].cuz_name}</p>
-            <p id="top-left-rating">Rating: {business.avg_rating}</p>
+            {/* <p id="top-left">{business.cuisines}</p> */}
+            <p id="top-left">Rating: {business.avg_rating}</p>
             <p id="price-indicator">{business.price}</p>
             <a id="website" href={business.website}><IoGlobe className="icon" size="30px" /></a>
             <h3 id="business-name">{business.name}</h3>
@@ -167,7 +168,7 @@ export default function BusinessPage()
       </div>
       <div className='bottomBusinessContainer'>
         <div id="carousel-wrapper-business">
-          <Carousel showArrows={false} partialVisbile={false} centerMode={true} responsive={responsive} itemClass="business-times-car">
+          <Carousel  partiallyVisbile={true} responsive={responsive} itemClass="business-times-car">
             {renderTimes}
             <></>
           </Carousel>

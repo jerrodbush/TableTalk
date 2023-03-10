@@ -496,10 +496,11 @@ a:link {
 
 #reserve-btn {
   margin: 10px;
-  margin-left: 100px;
+  
   width: 200px;
-  justify-self: center;
-  align-self: center;
+  justify-self: left;
+  align-self: left;
+  margin-left: 25px;
 }
 
 label {

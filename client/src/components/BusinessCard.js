@@ -20,7 +20,7 @@ export default function BusinessCard({ restaurant })
                 <img src={rest_image} id='business-image'></img>
                 <p id="price-indicator">{price}</p>
                 <h3 id="bc-name">{name}</h3>
-                <p id="bc-minor-text"><b>Cuisine:</b> {restaurant.cuisines}</p>
+                <p id="bc-minor-text"><b>Cuisine:</b> {restaurant.cuisines[0].cuz_name}</p>
                 <p id="bc-minor-text"><b>{address}</b></p>
                 <p id="bc-minor-text"><b>{phone}</b></p>
                 <p id="bc-minor-text"><a href={website}>Website</a></p>
