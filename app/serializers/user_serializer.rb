@@ -12,6 +12,31 @@ class UserSerializer < ActiveModel::Serializer
     end
   end
 
+  def reservations
+    object.reservations.map do |myRes|
+      {
+        id: myRes.id,
+        host_name: myRes.user.full_name,
+        rest_id: myRes.restaurant.id,
+        restaurant: myRes.restaurant.name,
+        address: myRes.restaurant.address,
+        date: myRes.date,
+        time: myRes.time,
+        number_of_seats: myRes.number_of_seats,
+        check_type: myRes.check_type,
+        rest_image: myRes.restaurant.rest_image,
+        members: myRes.members.map do |myMember|
+          {
+            id: myMember.user.id,
+            name: myMember.user.full_name,
+            phone: myMember.user.phone,
+            email: myMember.user.email
+          }
+        end
+      }
+    end
+  end
+
   def my_interests
     full_interests = []
     object.members.map do |member|

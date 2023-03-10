@@ -36,17 +36,35 @@
     padding-top: 15px;
 }
 
-#userinfo > h2 {
+#user-info {
     margin: 0px;
-    padding: 0px;
-    width: 50px;
-    align-self: center;
+    height: 100%;
+    width: 100%;
+    padding-left: 10px;
+    margin-top: 25px;
 }
 
-#userinfo > h4 {
-    margin: 0px;
-    padding: 0px;
+#user-info > * {
+    height: 15px;
 }
+
+#res-header {
+    height: 20px;
+}
+
+#name-car {
+    background-color: lightgrey;
+    width: 150px;
+    font-size: 17px;
+    font-weight: 900;
+    height: 38px;
+    border-radius: 18px;
+    text-align: center;
+    align-items: center;
+    line-height: 18px;
+    padding-top: 5px;
+}
+
 
 #reserve-wrapper-p {
     width: 100vw;
@@ -55,6 +73,7 @@
     flex-direction: column;
     justify-content: center;
     align-content: center;
+    height: 100%;
 }
 #tabletalkers-wrapper {
     width: 100vw;
@@ -68,5 +87,10 @@
 div > h3 {
     font-size: 45px;
     font-weight: 700;
+}
+
+#reservation-card-container {
+    margin-bottom: 0px;
+    height: 100%;
 }
 

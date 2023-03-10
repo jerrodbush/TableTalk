@@ -1,4 +1,4 @@
-import { React, useContext, useState } from 'react'
+import { React, useContext, useState, useEffect } from 'react'
 import { UserContext } from "../context/user";
 import { useNavigate } from 'react-router-dom';
 import '../styling/login.css';
@@ -67,6 +67,23 @@ export default function Login({updateUser}) {
     })
   }
 
+  useEffect(() =>{
+    if (userState.isLoggedIn === true) {
+      setUserState({...userState,
+        isLoggedIn: false,
+        user_id: '',
+        page: '',
+        full_name: '',
+        phone: '',
+        age: '',
+        username: '',
+        email: '',
+        location: '',
+        user_image: ''
+      })
+    }
+}, [1])
+
   //handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -79,12 +96,11 @@ export default function Login({updateUser}) {
     .then(res => {
       if(res.ok){
         res.json().then(obj => {
-          // console.log(obj)
           updateUserState(obj)
           updateUser(obj)
-          // console.log(userState)
         })
-        .then(navigate('/business/1'))
+        .then(console.log("navigation commencing"))
+        .then(navigate('/home'))
       } else {
         // alert("Error logging in.")
         res.json().then(json => setError(json.error))

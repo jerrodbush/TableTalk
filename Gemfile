@@ -6,6 +6,9 @@ ruby "2.7.4"
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.4", ">= 7.0.4.2"
 
+
+gem 'twilio-ruby'
+
 # Use sqlite3 as the database for Active Record
 # gem "sqlite3", "~> 1.4"
 gem 'pg'

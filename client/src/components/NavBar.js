@@ -1,11 +1,15 @@
-import { React, useState } from 'react'
+import { React, useState, useContext } from 'react'
 import { slide as Menu } from 'react-burger-menu'
 import { NavLink } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-import "../index.css"
+import "../index.css";
+import {UserContext} from '../context/user.js';
 
 export default function NavBar({updateUser}) {
     const [menuState, setMenuState] = useState(false)
+
+    // initialize User Context
+   const { userState, setUserState } = useContext(UserContext);
 
     //allow navigation
     const navigate = useNavigate();

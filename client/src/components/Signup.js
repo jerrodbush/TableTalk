@@ -102,7 +102,7 @@ export default function Signup({updateUser}) {
         if(res.ok){
           res.json().then(user => {
             updateUserState(user)
-            navigate('/business/1')
+            navigate('/home')
           })
         } else {
           alert('Something went wrong with your signup.')
