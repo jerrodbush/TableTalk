@@ -12,6 +12,7 @@ class ShowUserWithResSerializer < ActiveModel::Serializer
         time: myRes.time,
         number_of_seats: myRes.number_of_seats,
         check_type: myRes.check_type,
+        rest_image: myRes.reservation.image,
         members: myRes.members.map do |myMember|
           {
             id: myMember.user.id,
