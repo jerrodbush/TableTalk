@@ -1,4 +1,4 @@
-import { React, useContext, useState } from 'react'
+import { React, useContext, useState, useEffect } from 'react'
 import { UserContext } from "../context/user";
 import { useNavigate } from 'react-router-dom';
 import '../styling/login.css';
@@ -66,6 +66,23 @@ export default function Login({updateUser}) {
       user_image: obj.user_image,
     })
   }
+
+  useEffect(() =>{
+    if (userState.isLoggedIn === true) {
+      setUserState({...userState,
+        isLoggedIn: false,
+        user_id: '',
+        page: '',
+        full_name: '',
+        phone: '',
+        age: '',
+        username: '',
+        email: '',
+        location: '',
+        user_image: ''
+      })
+    }
+}, [10])
 
   //handle form submission
   const handleSubmit = (e) => {

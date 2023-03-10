@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
+import '../styling/businesscard.css';
 
 export default function BusinessCard({ restaurant })
 {
@@ -15,15 +16,16 @@ export default function BusinessCard({ restaurant })
 
     return (
         <>
-            <div className='business-details'>
+            <div id="business-details-2" className='business-details'>
                 <img src={rest_image} id='business-image'></img>
-                <h3>{name} {price}</h3>
-                <p><b>Cuisine:</b> {restaurant.cuisines}</p>
-                <p><b>Address:</b> {address}</p>
-                <p><b>P:</b> {phone}</p>
-                <p><a href={website}>Website</a></p>
-                <p><b>Rating:</b> {avg_rating} ⭐️</p>
-                <button onClick={handleClick}>View Details</button>
+                <p id="price-indicator">{price}</p>
+                <h3 id="bc-name">{name}</h3>
+                <p id="bc-minor-text"><b>Cuisine:</b> {restaurant.cuisines}</p>
+                <p id="bc-minor-text"><b>{address}</b></p>
+                <p id="bc-minor-text"><b>{phone}</b></p>
+                <p id="bc-minor-text"><a href={website}>Website</a></p>
+                <p id="top-left"><b>Rating:{avg_rating} ⭐️</b></p>
+                <button id="bc-btn" onClick={handleClick}>Reserve Now</button>
             </div>
         </>
     )

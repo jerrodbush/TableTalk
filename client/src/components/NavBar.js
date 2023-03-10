@@ -26,18 +26,6 @@ export default function NavBar({updateUser}) {
       .then(res => {
         if(res.ok){
           updateUser(null)
-          setUserState({
-            isLoggedIn: false,
-            user_id: '',
-            page: '',
-            full_name: '',
-            phone: '',
-            age: '',
-            username: '',
-            email: '',
-            location: '',
-            user_image: ''
-          })
           navigate('/')
         }
       })

@@ -1,0 +1,41 @@
+.heading-search {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-bottom: 20px;
+    align-content: center;
+    width: 100vw;
+}
+
+#search {
+    display: flex;
+    flex-direction: column;
+}
+
+#search > * {
+    padding: 3px;
+    margin-bottom: 0px;
+}
+
+#search > input {
+    border-radius: 8px;
+    text-align: center;
+}
+
+
+#top-right-2 {
+    position: absolute;
+    top: 125px;
+    right: 85px;
+    display: flex;
+    flex-direction: column;
+
+}
+
+#top-right-2 > * {
+    margin: 0px;
+}
+
+#top-right-2 > *:first-child {
+    font-size: 13px;
+}

@@ -3,12 +3,21 @@ import NavBar from './NavBar'
 import '../styling/settings.css'
 import '../context/user.js';
 import { UserContext } from "../context/user";
-
+import { useNavigate } from 'react-router-dom';
 export default function ProfileSettings() {
+
+  //allow for navigation
+  const navigate = useNavigate();
 
   // initialize User Context
   const { userState, setUserState } = useContext(UserContext);
-console.log(userState);
+  useEffect(() =>{
+    if (userState.isLoggedIn === true) {
+      setUserState({...userState,
+        page: 'settings',
+      })
+    }
+}, [10])
       //Form State
       const initialState = {
         first_name: userState.first_name,
@@ -53,12 +62,29 @@ console.log(userState);
           location: obj.location,
           user_image: obj.user_image,
         })
-        console.log(userState);
+        alert('User Has Been Updated!')
     })
   }
 
+  const handleDelete = (e) => {
+    e.preventDefault();
+    const response = window.confirm("Are You Sure You Want To Delete?")
+
+    if (response) {
+      fetch(`http://localhost:9292/users/${userState.user_id}`,{
+        method:'DELETE',
+        headers:{'Content-Type': 'application/json'},
+        body: JSON.stringify(formState)
+      }).then(res => res.json())
+      .then(console.log('successfully deleted'))
+      .then(navigate('/'))
+    } else {
+      alert('You cancelled your delete request.')
+    }
+  }
+
   return (
-    <>
+   userState.isLoggedIn ? <>
       <NavBar/>
       <div className="settings-container">
         <h3>Settings</h3>
@@ -76,7 +102,9 @@ console.log(userState);
             <input name="password2" type="password" required onChange={handleChange} value={formState.password} placeholder="Password"/>
             <button type="submit">Save</button>
         </form>
+
+        <button onClick={handleDelete} id="dlt-btn">Delete Account</button>
       </div>
-    </>
+    </> : <div className="not-loggedin"><p>You are not logged in!</p> <button onClick={() => navigate('/')}>Login</button></div>
   )
 }
