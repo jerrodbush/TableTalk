@@ -1,5 +1,5 @@
 class UserSerializer < ActiveModel::Serializer
-  attributes :id, :full_name, :phone, :age, :username, :email, :location, :password_digest, :user_image, :dinner_partners, :my_interests, :reservations_joined, :reservations, :rest_image
+  attributes :id, :full_name, :phone, :age, :username, :email, :location, :password_digest, :user_image, :dinner_partners, :my_interests, :reservations_joined, :reservations, :restauranteInfo
 
   def dinner_partners
     object.reservations.map do |res|
@@ -12,12 +12,12 @@ class UserSerializer < ActiveModel::Serializer
     end
   end
 
-  def rest_image
+  def restauranteInfo
     object.reservations.map do |res|
-      res.restaurant.rest_image
+        res.restaurant
     end
   end
-  
+
   def my_interests
     full_interests = []
     object.members.map do |member|
