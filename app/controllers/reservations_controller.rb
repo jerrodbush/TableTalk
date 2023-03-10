@@ -11,6 +11,16 @@ rescue_from ActiveRecord::RecordNotFound, with: :res_not_found
 
   def create
     newRes = Reservation.create!(strong_params)
+    account_sid = "AC62628129e81097591ef55c507d0185a7"
+    auth_token = "180b6f4ee088ac1c73a7c641833dd878"
+    client = Twilio::REST::Client.new(account_sid, auth_token)
+    
+    message = client.messages.create(
+      to: "+1559-759-9410",
+      from: "+12182978244",
+      body: "You've booked a reservation on TableTalk! Details: #{newRes.time}pm @ #{newRes.restaurant.name}"
+    )
+    
     render json: newRes, status: :created
   end
 

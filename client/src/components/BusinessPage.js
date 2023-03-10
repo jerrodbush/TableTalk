@@ -108,6 +108,8 @@ export default function BusinessPage()
             <h3 id="business-name">{business.name}</h3>
             <h4 id="business-address">{business.address}</h4>
             <a href={`TEL:` + business.phone}><p id="phone-num">{business.phone}</p></a>
+            <p>{business.cuisines}</p>
+            <p>{business.avg_rating}</p>
           </div>
           <div className="reserve-form-container">
               <form onSubmit={handleSubmit}>
