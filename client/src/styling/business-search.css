@@ -39,3 +39,20 @@
 #top-right-2 > *:first-child {
     font-size: 13px;
 }
+
+#top-left-2 {
+    position: absolute;
+    top: 125px;
+    left: 85px;
+    display: flex;
+    flex-direction: column;
+
+}
+
+#top-left-2 > * {
+    margin: 0px;
+}
+
+#top-left-2 > *:first-child {
+    font-size: 13px;
+}
