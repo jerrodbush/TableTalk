@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   has_secure_password
-  has_many :reservations, through: :members
   has_many :reservations
+  # has_many :reservations, through: :members
   has_many :restaurants, through: :reservations
   has_many :interests, through: :reservations
   has_many :comments, through: :reservations
@@ -22,31 +22,4 @@ class User < ApplicationRecord
   def full_name
     "#{first_name} #{last_name}"
   end
-
-  def reservations_joined
-    self.members.map do |member|
-      {
-        Restuarant: member.reservation.restaurant.name,
-        Date: member.reservation.date,
-        Time: member.reservation.time,
-        Host: member.reservation.user.full_name,
-        Check_Type: member.reservation.check_type,
-        Interests: member.reservation_interests
-      }
-    end
-  end
-
-  def reservation_id
-    self.members.map do |id|
-      id.reservation_id
-    end
-  end
-
-  # def reservation_restaurant_name
-  #   self.reservations.map do |restaurant|
-  #     if restaurant.id == self.reservation_id
-  #       restaurant.restaurant.name
-  #     end
-  #   end
-  # end
 end
