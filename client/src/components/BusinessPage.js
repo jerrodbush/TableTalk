@@ -10,11 +10,10 @@ import {UserContext} from '../context/user.js';
 import ReservationCard from './ReservationCard';
 
 export default function BusinessPage()
-
 {
 
-   // initialize User Context
-   const { userState, setUserState } = useContext(UserContext);
+  // initialize User Context
+  const { userState, setUserState } = useContext(UserContext);
 
   const responsive = {
     desktop: {
@@ -96,14 +95,24 @@ export default function BusinessPage()
   //   <ReservationCard reservations={item}/>
   // })
 
+  const [isMapLoaded, setIsMapLoaded] = useState(false);
 
-  
+  useEffect(() =>
+  {
+    const timerId = setTimeout(() =>
+    {
+      setIsMapLoaded(true);
+    }, 1000);
+
+    return () => clearTimeout(timerId);
+  }, []);
 
   // const mappedTimes = initialTimes.map(function (time)
   // {
   //   return <button id="time-carousel-btn" onClick={() => handleClick(time)}>{time}</button>
   // })
   console.log(business);
+
   return (
     <>
       <NavBar />
@@ -111,9 +120,9 @@ export default function BusinessPage()
         <div className='businessTopContainer'>
           <div className='business-details'>
             <img src={business.rest_image} id='business-image'></img>
-            
+
             <p id="price-indicator">{business.price}</p>
-            <a  id="website" href={business.website}><IoGlobe className="icon" size="30px"/></a>
+            <a id="website" href={business.website}><IoGlobe className="icon" size="30px" /></a>
             <h3 id="business-name">{business.name}</h3>
             <h4 id="business-address">{business.address}</h4>
             <a href={`TEL:` + business.phone}><p id="phone-num">{business.phone}</p></a>
@@ -133,7 +142,7 @@ export default function BusinessPage()
 
         </div>
         <div className='businessMapContainer'>
-          <MapContainer  className="map-container" business={business} longitude={business.longitude} latitude={business.latitude} />
+          {isMapLoaded && <MapContainer className="map-container" business={business} longitude={business.longitude} latitude={business.latitude} />}
         </div>
       </div>
       <div className='bottomBusinessContainer'>
@@ -151,7 +160,6 @@ export default function BusinessPage()
         <Carousel  responsive={responsive}>
           <h2>hello</h2>
         </Carousel>
-
       </div>
     </>
   )
