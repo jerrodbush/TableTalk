@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import NavBar from './NavBar'
 import BusinessCard from './BusinessCard';
+import '../styling/reservation.css'
 
 export default function BusinessSearch()
 {
@@ -114,8 +115,9 @@ export default function BusinessSearch()
             <option value="5">4.6 - 5.0</option>
           </select>
       </div> */}
-
-      {mappedRestaurants}
+      <div id="reservation-list-wrapper">
+        {mappedRestaurants}
+      </div>
     </>
   )
 }

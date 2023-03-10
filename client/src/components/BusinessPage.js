@@ -5,9 +5,9 @@ import { useParams } from 'react-router-dom';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import '../App.css';
-import { IoGlobe } from "react-icons/io5";
-import { UserContext } from '../context/user.js';
-
+import  {IoGlobe} from "react-icons/io5";
+import {UserContext} from '../context/user.js';
+import ReservationCard from './ReservationCard';
 
 export default function BusinessPage()
 {
@@ -35,14 +35,16 @@ export default function BusinessPage()
 
   let { businessid } = useParams()
   const [business, setBusiness] = useState([])
+
+
   //Form State
   const initialState = {
     check_type: 'Host pays',
     number_of_seats: '',
-    user_id: 700,
+    user_id: userState.user_id,
     restaurant_id: businessid,
     date: '',
-    time: 1,
+    time: 5.0,
   };
 
   //create form state
@@ -87,12 +89,10 @@ export default function BusinessPage()
       .then(data => console.log(data))
   }
 
-  const initialTimes = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
-  const mappedTimes = initialTimes.map(function (time)
-  {
-    return <button id="time-carousel-btn" onClick={() => handleClick(time)}>{time}</button>
-  })
+  // const renderReservations = reservations.map(item => {
+  //   <ReservationCard reservations={item}/>
+  // })
 
   const [isMapLoaded, setIsMapLoaded] = useState(false);
 
@@ -105,6 +105,12 @@ export default function BusinessPage()
 
     return () => clearTimeout(timerId);
   }, []);
+
+  // const mappedTimes = initialTimes.map(function (time)
+  // {
+  //   return <button id="time-carousel-btn" onClick={() => handleClick(time)}>{time}</button>
+  // })
+  console.log(business);
 
   return (
     <>
@@ -121,7 +127,7 @@ export default function BusinessPage()
             <a href={`TEL:` + business.phone}><p id="phone-num">{business.phone}</p></a>
           </div>
           <div className="reserve-form-container">
-            <form onSubmit={handleSubmit}>
+              <form id="reservation-form-submit" onSubmit={handleSubmit}>
               <input type="date" id='date-input' name='date' value={formState.date} onChange={handleChange}></input>
               <select onChange={handleChange} name="check_type">
                 <option value="Host pays">I pay</option>
@@ -141,10 +147,18 @@ export default function BusinessPage()
       <div className='bottomBusinessContainer'>
         <div id="carousel-wrapper-business">
           <Carousel showArrows={false} partialVisbile={false} centerMode={true} responsive={responsive} itemClass="business-times-car">
-            {mappedTimes}
+            {/* {mappedTimes} */}
+            <></>
           </Carousel>
         </div>
-        <button id="reserve-btn" type='submit'>Reserve</button>
+        <button form="reservation-form-submit" id="reserve-btn"type='submit'>Reserve</button>
+      </div>
+
+      <div>
+        <h2>Open Reservations</h2>
+        <Carousel  responsive={responsive}>
+          <h2>hello</h2>
+        </Carousel>
       </div>
     </>
   )

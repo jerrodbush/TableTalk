@@ -194,6 +194,20 @@ button {
   justify-content: center;
   align-content: center;
 }
+
+#top-left-members {
+  position: absolute;
+  top: 47px;
+  left: 25px;
+  background-color:  rgba(30,144,255,.7);
+  border-radius: 15%;
+  color: white;
+  padding: 5px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
 #card-date {
   background-color: rgba(0,0,0,.7);
   border-radius: 15%;

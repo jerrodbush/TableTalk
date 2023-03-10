@@ -7,6 +7,7 @@ import 'react-multi-carousel/lib/styles.css';
 import ReservationCard from './ReservationCard';
 import '../context/user.js';
 import { UserContext } from "../context/user";
+import ReservationCard2 from './ReservationCard2';
 
 
 export default function ProfilePage() {
@@ -15,6 +16,8 @@ export default function ProfilePage() {
   const { userState, setUserState } = useContext(UserContext);
 
   const [userInfo, setUserInfo] = useState([]);
+
+
 
   const [interests, setInterestState] = useState([]);
 
@@ -37,31 +40,40 @@ export default function ProfilePage() {
     }
   };
 
+  const userId = userState.user_id;
   console.log(userState);
 
+
   useEffect(() => {
-    fetch(`http://localhost:9292/users/${userState.user_id}`)
+    fetch(`http://localhost:9292/users/${userId}`)
     .then(res => res.json())
     .then(obj => setUserInfo(obj))
     .then(console.log(userInfo))
+    .then()
   }, [])
-
+  
+  console.log(userInfo);
+  
+  const renderReservations =  userInfo.reservations && userInfo.reservations.length ? userInfo.reservations.map((reservation) => {
+    return <ReservationCard2 reservations={reservation} />
+  }) : <p>No reservations</p>
+  
+  const talkers = userInfo.dinner_partners && userInfo.dinner_partners.length ? userInfo.dinner_partners.map(item => {
+    return <div><h3>{item.first_name}</h3></div>
+  }) : <p>No Talkers :/</p>
+  
    //tag cloud testing purposes
    const data = [
     { value: 'JavaScript', count: 38, color: "blue" }
   ]
 
-  const userInterests = userInfo.my_interests
 
-  const renderInterests = () => {
-    if (userInterests !== undefined) {
-      userInterests.map(item => {
-        
-      })
-    } else if (userInterests === undefined) {
-      
-    }
-  }
+
+  
+  
+
+
+ 
 
   return (
     <>
@@ -92,26 +104,14 @@ export default function ProfilePage() {
         <div id="reserve-wrapper-p">
             <h3>Reservations</h3>
             <Carousel responsive={responsive}>
-              <p>Add Reservations</p>
+              {renderReservations}
             </Carousel>
         </div>
 
         <div id="tabletalkers-wrapper">
           <h3>TableTalkers</h3>
           <Carousel responsive={responsive}>
-              <h1>Test2</h1>
-              <h1>Test2</h1>
-              <h1>Test2</h1>
-              <h1>Test2</h1>
-              <h1>Test2</h1>
-              <h1>Test2</h1>
-              <h1>Test2</h1>
-              <h1>Test2</h1>
-              <h1>Test2</h1>
-              <h1>Test2</h1>
-              <h1>Test2</h1>
-              <h1>Test2</h1>
-              <h1>Test2</h1>
+              {talkers}
             </Carousel>
         </div>
       </div>

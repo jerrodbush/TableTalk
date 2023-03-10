@@ -13,7 +13,7 @@ class Member < ApplicationRecord
       Date: self.reservation.date,
       Time: self.reservation.time,
       Host: self.reservation.user.full_name,
-      Check_Type: member.reservation.check_type,
+      Check_Type: self.reservation.check_type,
       Interests: self.reservation_interests
     }
   end
