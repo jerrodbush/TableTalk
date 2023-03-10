@@ -9,7 +9,9 @@ class Reservation < ApplicationRecord
   validates :time, inclusion: {in: 5..11}
   validates :number_of_seats, inclusion: {in: 2..8}
   validates :check_type, inclusion: {in: ["Host pays", "Members pay", "Split check"]}
+  
   # add validation for date????
+  
 
   # STRETCH GOAL: add custom validation to check num_of_seats against rest capacity
 end
