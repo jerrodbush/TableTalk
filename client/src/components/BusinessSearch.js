@@ -47,9 +47,36 @@ export default function BusinessSearch()
     setSearchTerm(e.target.value);
   }
 
-  const filteredRestaurants = restaurants.filter(r => (
+  const restaurantsToDisplay = restaurants.filter(r => (
     r.name.toLowerCase().includes(searchTerm.toLowerCase())
   ))
+
+  // Handle cuisine selection change
+  const selectedCuis = (e) => {
+        setSelectedCuisine(e.target.value)
+  }
+  // Handle price range selection change
+  const selectedDollar = (e) => {
+        setSelectedPrice(e.target.value)
+  }
+  // Handle rating selection change
+  const selectedRatingStars = (e) => {
+        setSelectedRating(parseInt.e.target.value)
+  }
+
+  const filteredRestaurants = restaurantsToDisplay
+  // .filter(rests => {
+  //     if(selectedCuisine === "All") return true
+  //     return rests.restaurant.cuisines === selectedCuisine
+  // })
+  .filter(rests => {
+    if(selectedPrice === "All") return true
+    return rests.price === selectedPrice
+  })
+  // .filter(rests => {
+  //   if(selectedRating === "All") return true
+  //   return rests.avg_rating === selectedRating
+  // })
 
   const mappedRestaurants = filteredRestaurants.map(function (restaurant)
   {
