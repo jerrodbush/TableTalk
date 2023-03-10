@@ -98,7 +98,7 @@ export default function BusinessPage()
       body: JSON.stringify(formState)
     })
       .then(res => res.json())
-      .then(data => console.log(data))
+      // .then(data => console.log(data))
       .then(alert(`Successfully Reserved ${business.name} for ${formState.number_of_seats} on ${formState.date} at ${formState.time}.`))
       navigate('/profile/:username')
   }
@@ -129,12 +129,12 @@ export default function BusinessPage()
     return <button name="time" value={time} id="time-carousel-btn" onClick={() => handleClick(time)}>{time}</button>
   }) : <p>Something Went Wrong</p>
 
-  console.log(business);
+  // console.log(business);
 
   const renderReservations = business.reservations && business.reservations.length ? business.reservations.map((res) => {
       return <ReservationCard3 reservations={res}/>
   }) : <div>No Reservations</div>
-   console.log(business);
+  //  console.log(business);
   return (
    userState.isLoggedIn ? <>
       <NavBar />
@@ -143,7 +143,7 @@ export default function BusinessPage()
           <div className='business-details'>
             <img src={business.rest_image} id='business-image'></img>
             {/* <p id="top-left">{business.cuisines}</p> */}
-            <p id="top-left">Rating: {business.avg_rating}</p>
+            <p id="top-left">Rating: {business.avg_rating} ⭐️</p>
             <p id="price-indicator">{business.price}</p>
             <a id="website" href={business.website}><IoGlobe className="icon" size="30px" /></a>
             <h3 id="business-name">{business.name}</h3>
