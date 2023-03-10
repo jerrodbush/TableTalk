@@ -1,0 +1,73 @@
+#reservation-card-bottom-container {
+    height: 180px;
+    border-radius: 15px;
+}
+
+#resevation-card-container {
+    border-radius: 15px;
+}
+
+#reservation-card-image-container > img {
+    height: 145px;
+}
+
+#top-left2 {
+    position: absolute;
+    top: 3px;
+    left: 16px;
+    background-color:  rgba(0,0,0,.7);
+    border-radius: 15%;
+    color: white;
+    padding: 5px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+  }
+  #top-left-check2 {
+    position: absolute;
+    top: 27px;
+    left: 25px;
+    background-color:  rgba(30,144,255,.7);
+    border-radius: 15%;
+    color: white;
+    padding: 5px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+  }
+  
+  #top-left-members2 {
+    position: absolute;
+    top: 47px;
+    left: 25px;
+    background-color:  rgba(30,144,255,.7);
+    border-radius: 15%;
+    color: white;
+    padding: 5px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+  }
+
+  #top-right2 {
+    position: absolute;
+    top: 0px;
+    right: 16px;
+  }
+  
+  #top-right2>h4 {
+    padding: 0px;
+    margin-bottom: 0px;
+  }
+  
+  #top-right2>h5 {
+    padding: 0px;
+    margin-top: 2px;
+    background-color: red;
+    border-radius: 15%;
+    color: white;
+  }
+

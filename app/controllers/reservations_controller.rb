@@ -1,5 +1,5 @@
 require 'yaml'
-CONFIG = YAML.load_file('config.yml')
+# CONFIG = YAML.load_file('config.yml')
 
 class ReservationsController < ApplicationController
 rescue_from ActiveRecord::RecordNotFound, with: :res_not_found
@@ -14,9 +14,6 @@ rescue_from ActiveRecord::RecordNotFound, with: :res_not_found
 
   def create
     newRes = Reservation.create!(strong_params)
-
-    account_sid = CONFIG['account_sid']
-    auth_token = CONFIG['auth_token']
     client = Twilio::REST::Client.new(account_sid, auth_token)
     message = client.messages.create(
         to: "+13129091825",

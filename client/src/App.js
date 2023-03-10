@@ -20,25 +20,15 @@ const [user, setUser] = useState(null)
     fetch('/authorized')
     .then(res => {
       if(res.ok){
-        // console.log("Res OK")
-        // console.log(res)
         res.json().then(user => setUser(user))
       } else {
-        // console.log("Res NOT")
         setUser(null)
       }
     })
   }, [])
 
   const updateUser = (user) => setUser(user)
-  // console.log("IRan here")
-  // console.log(userState)
-  // console.log("end of Run")
-  // const frank = () => {
-  //   if (!user) return (
-  //     navigate("/")
-  //     )
-  // }
+
 
   return (
     <div className="App">

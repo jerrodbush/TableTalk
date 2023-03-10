@@ -1,0 +1,38 @@
+.business-details {
+    height: 100%;
+    background-color: lightblue;
+}
+
+#business-details-2 {
+    width: 250px;
+}
+
+#top-left {
+    text-align: center;
+    justify-content: center;
+    align-content: center;
+}
+
+#bc-btn {
+    width: 100%;
+    margin-bottom: 0px;
+    justify-self: bottom;
+}
+
+#bc-name {
+    font-size: 23px;
+    font-weight: 900;
+    line-height: 18px;
+}
+
+#business-image {
+    height: 175px;
+}
+
+#bc-minor-text {
+    font-size: 15px;
+    text-align: left;
+    padding-left: 8px;
+    padding-top: 3px;
+}
+

@@ -7,14 +7,25 @@ import 'react-multi-carousel/lib/styles.css';
 import '../App.css';
 import  {IoGlobe} from "react-icons/io5";
 import {UserContext} from '../context/user.js';
-import ReservationCard from './ReservationCard';
+import ReservationCard3 from './ReservationCard3';
+import { useNavigate } from 'react-router-dom';
 
 export default function BusinessPage()
 {
 
   // initialize User Context
   const { userState, setUserState } = useContext(UserContext);
+ 
+  //allow for navigation
+  const navigate = useNavigate();
 
+      useEffect(() =>{
+        if (userState.isLoggedIn === true) {
+          setUserState({...userState,
+            page: 'business',
+          })
+        }
+    }, [10])
   const responsive = {
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
@@ -45,6 +56,7 @@ export default function BusinessPage()
     restaurant_id: businessid,
     date: '',
     time: 5.0,
+    
   };
 
   //create form state
@@ -110,10 +122,18 @@ export default function BusinessPage()
   // {
   //   return <button id="time-carousel-btn" onClick={() => handleClick(time)}>{time}</button>
   // })
+
+  const renderTimes = business.totalHours && business.totalHours.length ? business.totalHours.map((time) => {
+    return <button id="time-carousel-btn" onClick={() => handleClick(time)}>{time}</button>
+  }) : <p>Something Went Wrong</p>
   console.log(business);
 
+  const renderReservations = business.reservations && business.reservations.length ? business.reservations.map((res) => {
+      return <ReservationCard3 reservations={res}/>
+  }) : <div>No Reservations</div>
+
   return (
-    <>
+   userState.isLoggedIn ? <>
       <NavBar />
       <div className='businessContainer'>
         <div className='businessTopContainer'>
@@ -147,7 +167,7 @@ export default function BusinessPage()
       <div className='bottomBusinessContainer'>
         <div id="carousel-wrapper-business">
           <Carousel showArrows={false} partialVisbile={false} centerMode={true} responsive={responsive} itemClass="business-times-car">
-            {/* {mappedTimes} */}
+            {renderTimes}
             <></>
           </Carousel>
         </div>
@@ -155,11 +175,11 @@ export default function BusinessPage()
       </div>
 
       <div>
-        <h2>Open Reservations</h2>
+        <h2>Reservations</h2>
         <Carousel  responsive={responsive}>
-          <h2>hello</h2>
+          {renderReservations}
         </Carousel>
       </div>
-    </>
+    </>  : <div className="not-loggedin"><p>You are not logged in!</p> <button onClick={navigate('/')}>Login</button></div>
   )
 }
