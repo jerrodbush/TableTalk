@@ -94,12 +94,6 @@ export default function ProfilePage() {
     <div><p>{name}</p></div>
   })
 
-  
-  
-
-
- 
-
   return (
     userState.isLoggedIn ? <>
       <NavBar/>
@@ -109,7 +103,7 @@ export default function ProfilePage() {
           <div id="profile-header-left">
             <img id="pfp" src={userState.user_image}/>
             <div id="user-info">
-              <h2>{userState.full_name}</h2>
+              <h2>{userState.first_name} {userState.last_name}</h2>
               <h4>{userState.location}</h4>
             </div>
           </div>
@@ -126,16 +120,16 @@ export default function ProfilePage() {
           <h3>TableTalkers</h3>
           <Carousel responsive={responsive2} partialVisbile={false}>
             <></>
-             <p id="name-car">David Goggins</p>
-             <p id="name-car">Christopher Columbus</p>
-             <p id="name-car">Sarah Jane</p>
-             <p id="name-car">Benedict Pope</p>
-             <p id="name-car">Shawn Connery</p>
-             <p id="name-car">Elijah Wood</p>
-             <p id="name-car">Xavier Carr</p>
-             <p id="name-car">Craig Hasselhoff</p>
-             <p id="name-car">Harambe</p>
-             
+            <p id="name-car">David Goggins</p>
+            <p id="name-car">Christopher Columbus</p>
+            <p id="name-car">Sarah Jane</p>
+            <p id="name-car">Benedict Pope</p>
+            <p id="name-car">Shawn Connery</p>
+            <p id="name-car">Elijah Wood</p>
+            <p id="name-car">Xavier Carr</p>
+            <p id="name-car">Craig Hasselhoff</p>
+            <p id="name-car">Harambe</p>
+
           </Carousel>
         </div>
       </div>
