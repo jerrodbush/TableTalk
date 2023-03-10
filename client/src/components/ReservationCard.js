@@ -13,7 +13,7 @@ export default function ReservationCard( { reservations }  ) {
 
     const handleReserve = (e) => {
         const initialPost = {
-            reservation_id: reservations.id-1,
+            reservation_id: reservations.id+1,
             user_id: userState.user_id,
             guest_check_type: "Host pays"
         }

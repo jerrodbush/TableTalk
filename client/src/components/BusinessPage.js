@@ -37,6 +37,8 @@ export default function BusinessPage()
 
   let { businessid } = useParams()
   const [business, setBusiness] = useState([])
+
+
   //Form State
   const initialState = {
     check_type: 'Host pays',
@@ -44,7 +46,7 @@ export default function BusinessPage()
     user_id: userState.user_id,
     restaurant_id: businessid,
     date: '',
-    time: 1.0,
+    time: '1.0',
   };
 
   //create form state
@@ -71,7 +73,7 @@ export default function BusinessPage()
       .then(function (data)
       {
         return setBusiness(data)
-      })
+      }).then(console.log(business))
   }, [])
 
   const handleSubmit = (e) =>
@@ -96,12 +98,23 @@ export default function BusinessPage()
 
 
 
-  const initialTimes = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+  // const initialTimes = () => {
+  //   let open = business.open_time
+  //   let close = business.close_time
+  //   if (close > open) {
+  //     console.log(open)
+  //     open--
+  //   }
+  // }
 
-  const mappedTimes = initialTimes.map(function (time)
-  {
-    return <button id="time-carousel-btn" onClick={() => handleClick(time)}>{time}</button>
-  })
+  // initialTimes();
+
+  
+
+  // const mappedTimes = initialTimes.map(function (time)
+  // {
+  //   return <button id="time-carousel-btn" onClick={() => handleClick(time)}>{time}</button>
+  // })
   console.log(business);
   return (
     <>
@@ -138,7 +151,8 @@ export default function BusinessPage()
       <div className='bottomBusinessContainer'>
         <div id="carousel-wrapper-business">
           <Carousel showArrows={false} partialVisbile={false} centerMode={true} responsive={responsive} itemClass="business-times-car">
-            {mappedTimes}
+            {/* {mappedTimes} */}
+            <></>
           </Carousel>
         </div>
         <button form="reservation-form-submit" id="reserve-btn"type='submit'>Reserve</button>
