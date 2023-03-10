@@ -49,50 +49,31 @@ export default function ProfilePage() {
     .then(res => res.json())
     .then(obj => setUserInfo(obj))
     .then(console.log(userInfo))
-    .then(checkReservations())
+    .then()
   }, [])
-
+  
   console.log(userInfo);
-
-  const checkReservations = () => {
-    if (userInfo.reservations === undefined) {
-      console.log('undefined iran')
-    } else {
-      // const renderReservations = userInfo.reservations.forEach(
-        console.log("iran no undefined")
-    }
-  }
-
-  // checkReservations();
-  // checkRes
-  // const renderReservations = userInfo.reservations.forEach(
-  //   console.log("hello"))
-
-
+  
+  const renderReservations =  userInfo.reservations && userInfo.reservations.length ? userInfo.reservations.map((reservation) => {
+    return <ReservationCard reservations={reservation} />
+  }) : <p>No reservations</p>
+  
+  let talkers = userInfo.dinner_partners && userInfo.dinner_partners.length ? userInfo.dinner_partners.map(item => {
+    return <div><h3>{item.first_name}</h3></div>
+  }) : <p>No Talkers :/</p>
+  
    //tag cloud testing purposes
    const data = [
     { value: 'JavaScript', count: 38, color: "blue" }
   ]
 
-  // let renderReservations;
-  // console.log(userInfo.reservations);
-  // useEffect(() => {
-  //   // console.log(userInfo.reservations);
-  //   renderReservations = userInfo.reservations.map(item => {
 
-  //     console.log(item);
-  //   })
-  // },[1000]);
 
-  // const talkCheck = () => {
-  //   if (userInfo.dinner_partners === undefined) {
+  
+  
 
-  //   } else {
-  //     let talkers = userInfo.dinner_partners.map(item => {
-  //       return <div><h3>{item.first_name}</h3></div>
-  //     })
-  //   }
-  // }
+
+ 
 
   return (
     <>
@@ -123,16 +104,14 @@ export default function ProfilePage() {
         <div id="reserve-wrapper-p">
             <h3>Reservations</h3>
             <Carousel responsive={responsive}>
-              <></>
-              {/* {renderReservations} */}
+              {renderReservations}
             </Carousel>
         </div>
 
         <div id="tabletalkers-wrapper">
           <h3>TableTalkers</h3>
           <Carousel responsive={responsive}>
-              <>
-              </>
+              {talkers}
             </Carousel>
         </div>
       </div>
