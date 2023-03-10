@@ -61,7 +61,7 @@ export default function BusinessSearch()
   }
   // Handle rating selection change
   const selectedRatingStars = (e) => {
-        setSelectedRating(parseInt.e.target.value)
+        setSelectedRating(e.target.value)
   }
 
   const filteredRestaurants = restaurantsToDisplay
@@ -73,10 +73,10 @@ export default function BusinessSearch()
     if(selectedPrice === "All") return true
     return rests.price === selectedPrice
   })
-  // .filter(rests => {
-  //   if(selectedRating === "All") return true
-  //   return rests.avg_rating === selectedRating
-  // })
+  .filter(rests => {
+    if(selectedRating === "All") return true
+    return rests.avg_rating.toString() === selectedRating
+  })
 
   const mappedRestaurants = filteredRestaurants.map(function (restaurant)
   {
@@ -109,6 +109,22 @@ export default function BusinessSearch()
               <option value="$$$$">$$$$</option>
         </select>
         </div>
+      </div>
+      <div id ="top-left-2">
+        <h2>Filter by Ratings ⭐️</h2>
+          <select onChange={selectedRatingStars}>
+            <option value="All">All</option>
+            <option value="4.1">4.1</option>
+            <option value="4.2">4.2</option>
+            <option value="4.3">4.3</option>
+            <option value="4.4">4.4</option>
+            <option value="4.5">4.5</option>
+            <option value="4.6">4.6</option>
+            <option value="4.7">4.7</option>
+            <option value="4.8">4.8</option>
+            <option value="4.9">4.9</option>
+            <option value="5.0">4.0</option>
+          </select>
       </div>
       <div id="reservation-list-wrapper">
         {mappedRestaurants}

@@ -24,7 +24,7 @@ export default function BusinessCard({ restaurant })
                 <p id="bc-minor-text"><b>{address}</b></p>
                 <p id="bc-minor-text"><b>{phone}</b></p>
                 <p id="bc-minor-text"><a href={website}>Website</a></p>
-                <p id="top-left"><b>Rating:{avg_rating} ⭐️</b></p>
+                <p id="top-left"><b>Rating: {avg_rating} ⭐️</b></p>
                 <button id="bc-btn" onClick={handleClick}>Reserve Now</button>
             </div>
         </>

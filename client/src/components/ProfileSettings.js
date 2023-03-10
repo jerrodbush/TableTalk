@@ -30,7 +30,7 @@ export default function ProfileSettings() {
         phone: userState.phone,
         location: userState.location
       };
-  
+
       //create form state
       const [formState, setFormState] = useState(initialState);
 
@@ -39,8 +39,6 @@ export default function ProfileSettings() {
           setFormState({...formState, [e.target.name]: e.target.value});
       }
 
-  
-      
       const handleSubmit = (e) => {
         e.preventDefault();
         fetch(`http://localhost:9292/users/${userState.user_id}`,{
@@ -54,7 +52,8 @@ export default function ProfileSettings() {
           page: 'settings',
           isLoggedIn: true,
           user_id: obj.id,
-          full_name: obj.full_name,
+          first_name: obj.first_name,
+          last_name: obj.last_name,
           phone: obj.phone,
           age: obj.age,
           username: obj.username,
