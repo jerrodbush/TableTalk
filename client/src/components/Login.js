@@ -83,7 +83,7 @@ export default function Login({updateUser}) {
           updateUser(obj)
         })
         .then(console.log("navigation commencing"))
-        .then(navigate('/business/1'))
+        .then(navigate('/home'))
       } else {
         // alert("Error logging in.")
         res.json().then(json => setError(json.error))

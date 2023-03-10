@@ -1,7 +1,6 @@
 import { React, useContext, useState, useEffect } from 'react';
 import NavBar from './NavBar';
 import '../styling/profile.css';
-import { TagCloud } from 'react-tagcloud';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import ReservationCard from './ReservationCard';
@@ -60,12 +59,7 @@ export default function ProfilePage() {
   
   const talkers = userInfo.dinner_partners && userInfo.dinner_partners.length ? userInfo.dinner_partners.map(item => {
     return <div><h3>{item.first_name}</h3></div>
-  }) : <p>No Talkers :/</p>
-  
-   //tag cloud testing purposes
-   const data = [
-    { value: 'JavaScript', count: 38, color: "blue" }
-  ]
+  }) : <h3>No Talkers :/</h3>
 
 
 
@@ -88,17 +82,6 @@ export default function ProfilePage() {
               <h4>{userState.location}</h4>
             </div>
           </div>
-
-          <div id="profile-header-right">
-              <TagCloud
-                minSize={12}
-                maxSize={35}
-                tags={data}
-                disableRandomColor={true}
-                onClick={tag => alert(`'${tag.value}' was selected!`)}
-              />
-          </div>
-
         </div>
 
         <div id="reserve-wrapper-p">
@@ -112,7 +95,7 @@ export default function ProfilePage() {
           <h3>TableTalkers</h3>
           <Carousel responsive={responsive}>
               {talkers}
-            </Carousel>
+          </Carousel>
         </div>
       </div>
     </>

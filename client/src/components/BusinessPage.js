@@ -46,6 +46,7 @@ export default function BusinessPage()
     restaurant_id: businessid,
     date: '',
     time: 5.0,
+    
   };
 
   //create form state
