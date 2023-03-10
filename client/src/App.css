@@ -208,6 +208,20 @@ button {
   justify-content: center;
   align-content: center;
 }
+
+#top-left-rating {
+  position: absolute;
+  top: 40px;
+  left: 18px;
+  background-color:  rgba(30,144,255,.7);
+  border-radius: 15%;
+  color: white;
+  padding: 5px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
 #card-date {
   background-color: rgba(0,0,0,.7);
   border-radius: 15%;

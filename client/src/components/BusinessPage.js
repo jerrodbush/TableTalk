@@ -139,14 +139,13 @@ export default function BusinessPage()
         <div className='businessTopContainer'>
           <div className='business-details'>
             <img src={business.rest_image} id='business-image'></img>
-
+            <p id="top-left">{business.cuisines[0].cuz_name}</p>
+            <p id="top-left-rating">Rating: {business.avg_rating}</p>
             <p id="price-indicator">{business.price}</p>
             <a id="website" href={business.website}><IoGlobe className="icon" size="30px" /></a>
             <h3 id="business-name">{business.name}</h3>
             <h4 id="business-address">{business.address}</h4>
             <a href={`TEL:` + business.phone}><p id="phone-num">{business.phone}</p></a>
-            <p>{business.cuisines[0].cuz_name}</p>
-            <p>{business.avg_rating}</p>
           </div>
           <div className="reserve-form-container">
               <form id="reservation-form-submit" onSubmit={handleSubmit}>
