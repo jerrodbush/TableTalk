@@ -7,7 +7,7 @@ import 'react-multi-carousel/lib/styles.css';
 import ReservationCard from './ReservationCard';
 import '../context/user.js';
 import { UserContext } from "../context/user";
-
+import ReservationCard2 from './ReservationCard2';
 
 
 export default function ProfilePage() {
@@ -55,7 +55,7 @@ export default function ProfilePage() {
   console.log(userInfo);
   
   const renderReservations =  userInfo.reservations && userInfo.reservations.length ? userInfo.reservations.map((reservation) => {
-    return <ReservationCard reservations={reservation} />
+    return <ReservationCard2 reservations={reservation} />
   }) : <p>No reservations</p>
   
   const talkers = userInfo.dinner_partners && userInfo.dinner_partners.length ? userInfo.dinner_partners.map(item => {
