@@ -27,7 +27,6 @@ export default function ProfilePage() {
     }
 }, [10])
 
-
   const [interests, setInterestState] = useState([]);
 
   //for carousel elements
@@ -68,23 +67,22 @@ export default function ProfilePage() {
   };
 
   const userId = userState.user_id;
-  console.log(userState);
-
+  // console.log(userState);
 
   useEffect(() => {
     fetch(`http://localhost:9292/users/${userId}`)
     .then(res => res.json())
     .then(obj => setUserInfo(obj))
-    .then(console.log(userInfo))
+    // .then(console.log(userInfo))
     .then()
   }, [])
-  
-  console.log(userInfo);
-  
+
+  // console.log(userInfo);
+
   const renderReservations =  userInfo.reservations && userInfo.reservations.length ? userInfo.reservations.map((reservation) => {
     return <ReservationCard2 reservations={reservation} />
   }) : <p>No reservations</p>
-  
+
   // const talkers = userInfo.dinner_partners && userInfo.dinner_partners.length ? userInfo.dinner_partners.map(item => {
   //   return <div><h3>{item.first_name}</h3></div>
   // }) : <h3>No Talkers :/</h3>

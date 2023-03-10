@@ -99,6 +99,8 @@ export default function BusinessPage()
     })
       .then(res => res.json())
       .then(data => console.log(data))
+      .then(alert(`Successfully Reserved ${business.name} for ${formState.number_of_seats} on ${formState.date} at ${formState.time}.`))
+      navigate('/profile/:username')
   }
 
 
@@ -152,8 +154,8 @@ export default function BusinessPage()
               <form id="reservation-form-submit" onSubmit={handleSubmit}>
               <input type="date" id='date-input' name='date' value={formState.date} onChange={handleChange}></input>
               <select onChange={handleChange} name="check_type">
-                <option value="Host pays">I pay</option>
-                <option value="Members pay">You pay</option>
+                <option value="Host pays">Host pays</option>
+                <option value="Members pay">Members pay</option>
                 <option value="Split check">Split check</option>
               </select>
               <label for="party-size">Party Size: </label>
