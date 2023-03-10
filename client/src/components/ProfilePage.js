@@ -58,7 +58,7 @@ export default function ProfilePage() {
     return <ReservationCard reservations={reservation} />
   }) : <p>No reservations</p>
   
-  let talkers = userInfo.dinner_partners && userInfo.dinner_partners.length ? userInfo.dinner_partners.map(item => {
+  const talkers = userInfo.dinner_partners && userInfo.dinner_partners.length ? userInfo.dinner_partners.map(item => {
     return <div><h3>{item.first_name}</h3></div>
   }) : <p>No Talkers :/</p>
   

@@ -9,7 +9,6 @@ import  {IoGlobe} from "react-icons/io5";
 import {UserContext} from '../context/user.js';
 import ReservationCard from './ReservationCard';
 
-
 export default function BusinessPage()
 
 {
@@ -46,7 +45,7 @@ export default function BusinessPage()
     user_id: userState.user_id,
     restaurant_id: businessid,
     date: '',
-    time: '1.0',
+    time: 5.0,
   };
 
   //create form state
@@ -73,7 +72,7 @@ export default function BusinessPage()
       .then(function (data)
       {
         return setBusiness(data)
-      }).then(console.log(business))
+      })
   }, [])
 
   const handleSubmit = (e) =>
@@ -96,18 +95,6 @@ export default function BusinessPage()
   //   <ReservationCard reservations={item}/>
   // })
 
-
-
-  // const initialTimes = () => {
-  //   let open = business.open_time
-  //   let close = business.close_time
-  //   if (close > open) {
-  //     console.log(open)
-  //     open--
-  //   }
-  // }
-
-  // initialTimes();
 
   
 

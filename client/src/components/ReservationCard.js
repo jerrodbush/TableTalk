@@ -30,12 +30,14 @@ export default function ReservationCard( { reservations }  ) {
       .then()
     }
 
+    console.log(reservations);
+
   return (
     <div id="reservation-card-container">
         <div id="reservation-card-image-container">
             <img src={reservations.restaurant.rest_image}/>
             <div id="reservation-user-info-wrapper">
-                <h5 id="top-left">Dylan Rhinehart</h5>
+                <h5 id="top-left">{reservations.name}</h5>
                 <h6 id="top-left-check">{reservations.check_type}</h6>
                 <h6 id="top-left-members">{"Seats: " + (reservations.members.length + 1) + '/' + reservations.number_of_seats}</h6>
                 <div id="top-right">
