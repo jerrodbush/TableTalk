@@ -1,4 +1,4 @@
-import { useEffect, useState, useContext } from 'react';
+import { useEffect, useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import './App.css';
 
@@ -11,12 +11,9 @@ import ReservationsPage from './components/ReservationsPage';
 import BusinessSearch from './components/BusinessSearch';
 import ProfileSettings from './components/ProfileSettings';
 import { UserProvider } from './context/user.js';
-import { useNavigate } from 'react-router-dom';
-import { UserContext } from "./context/user";
 
 function App()
 {
-  const userState = useContext(UserContext)
 const [user, setUser] = useState(null)
 
   useEffect(() => {
@@ -34,7 +31,6 @@ const [user, setUser] = useState(null)
   }, [])
 
   const updateUser = (user) => setUser(user)
-  const navigate = useNavigate()
   // console.log("IRan here")
   // console.log(userState)
   // console.log("end of Run")

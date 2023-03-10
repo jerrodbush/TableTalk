@@ -31,14 +31,26 @@ export default function Signup({updateUser}) {
     }
   }
 
-    // initialize User Context
-    const userState = useContext(UserContext);
+     // initialize User Context
+  const { userState, setUserState } = useContext(UserContext);
 
     //allow navigation
     const navigate = useNavigate();
 
-    // update global state of page to current page
-    userState.page = "login";
+    const updateUserState = (obj) => {
+      setUserState({
+        page: 'home',
+        isLoggedIn: true,
+        user_id: obj.id,
+        full_name: obj.full_name,
+        phone: obj.phone,
+        age: obj.age,
+        username: obj.username,
+        email: obj.email,
+        location: obj.location,
+        user_image: obj.user_image,
+      })
+    }
 
     //progression of signup form initial state
     const initialProgression = {
@@ -89,7 +101,7 @@ export default function Signup({updateUser}) {
       .then(res => {
         if(res.ok){
           res.json().then(user => {
-            updateUser(user)
+            updateUserState(user)
             navigate('/business/1')
           })
         } else {
