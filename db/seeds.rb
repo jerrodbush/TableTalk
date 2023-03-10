@@ -98,7 +98,7 @@ Restaurant.create(
     name: "5th and Taylor",
     phone: "615-242-4747",
     address: "1411 5th Ave N, Nashville, TN 37208",
-    price: "$$$",
+    price: "$$$$",
     website: "http://5thandtaylor.com/",
     rest_image: "https://images.squarespace-cdn.com/content/v1/554980e9e4b0278520c6c43c/1453326177044-98UAYQPF8LKA6DBLQ9MM/5th+%26+Taylor+dining+room+-+smaller+file.jpg?format=2500w",
     open_time: Faker::Number.within(range: 5..7),
@@ -163,7 +163,7 @@ Restaurant.create(
     name: "Geist Bar + Restaurant",
     phone: "615-920-5440",
     address: "311 Jefferson St, Nashville, TN 37208",
-    price: "$$$",
+    price: "$$$$",
     website: "https://www.geistnashville.com/",
     rest_image: "https://images.squarespace-cdn.com/content/v1/5a3831a5bff200aa91b706ce/1547247703861-FQ9183SNGGEM9566BSUS/_MG_2524.jpg?format=2500w",
     open_time: Faker::Number.within(range: 5..7),
@@ -202,7 +202,7 @@ Restaurant.create(
     name: "HUSK",
     phone: "615-256-6565",
     address: "37 Rutledge St, Nashville, TN 37210",
-    price: "$$$",
+    price: "$$$$",
     website: "https://husknashville.com/",
     rest_image: "https://husknashville.com/wp-content/uploads/2022/09/our-food-new.jpg",
     open_time: Faker::Number.within(range: 5..7),
@@ -280,7 +280,7 @@ Restaurant.create(
     name: "O-Ku",
     phone: "615-900-0021",
     address: "81 Van Buren St, Nashville, TN 37208",
-    price: "$$",
+    price: "$",
     website: "http://o-kusushi.com/",
     rest_image: "https://lh3.googleusercontent.com/p/AF1QipNiNeEZOEOv6Rog-pAjqrCcas2TrpzDbxI9pU7-=s680-w680-h510",
     open_time: Faker::Number.within(range: 5..7),
@@ -293,7 +293,7 @@ Restaurant.create(
     name: "Rolf & Daughters",
     phone: "615-866-9897",
     address: "700 Taylor St, Nashville, TN 37208",
-    price: "$$$",
+    price: "$$$$",
     website: "https://www.rolfanddaughters.com/",
     rest_image: "https://lh3.googleusercontent.com/p/AF1QipOeq50QJ5ECR32VYTdea86GaNc9YyI1o9EAQSlT=s680-w680-h510",
     open_time: Faker::Number.within(range: 5..7),
@@ -306,7 +306,7 @@ Restaurant.create(
     name: "Tánsuŏ",
     phone: "615-782-6786",
     address: "121B 12th Ave N, Nashville, TN 37203",
-    price: "$$$",
+    price: "$$",
     website: "https://www.tansuonashville.com/",
     rest_image: "https://lh3.googleusercontent.com/p/AF1QipNQy1LPYcmXvXWVCYKmyd8yGtp10FLTOXUkV55T=s680-w680-h510",
     open_time: Faker::Number.within(range: 5..7),
@@ -319,7 +319,7 @@ Restaurant.create(
     name: "answer.",
     phone: "615-942-0866",
     address: "132 46th Ave N, Nashville, TN 37209",
-    price: "$$$",
+    price: "$$",
     website: "https://www.answerrestaurant.com/",
     rest_image: "https://lh3.googleusercontent.com/p/AF1QipP3MeuLqR_plgWcssSJGo-588lEEuDmoXnlq0kW=s680-w680-h510",
     open_time: Faker::Number.within(range: 5..7),
@@ -332,7 +332,7 @@ Restaurant.create(
     name: "Barcelona",
     phone: "615-327-0600",
     address: "1200 Villa Pl Suite 110, Nashville, TN 37212",
-    price: "$$",
+    price: "$",
     website: "https://barcelonawinebar.com/location/nashville/?utm_source=yext&utm_medium=localsearch&utm_campaign=landing-page&utm_content=edgehill",
     rest_image: "https://lh3.googleusercontent.com/p/AF1QipOgKDyyg0IVthyqS-JbBxtDyWqwB7xFQCJn60Cd=s680-w680-h510",
     open_time: Faker::Number.within(range: 5..7),
@@ -358,7 +358,7 @@ Restaurant.create(
     name: "Butchertown Hall",
     phone: "615-454-3634",
     address: "1416 4th Ave N, Nashville, TN 37208",
-    price: "$$",
+    price: "$",
     website: "https://www.butchertownhall.com/",
     rest_image: "https://lh3.googleusercontent.com/p/AF1QipNWLHq6GS-Ro0iBwcMnG39VxSdelduJxPQuHTQV=s680-w680-h510",
     open_time: Faker::Number.within(range: 5..7),
@@ -384,7 +384,7 @@ Restaurant.create(
     name: "Cafe Nonna",
     phone: "615-463-0133",
     address: "4427 Murphy Rd, Nashville, TN 37209",
-    price: "$$",
+    price: "$",
     website: "http://caffenonna.com/Caffe_Nonna/Caffe_Nonna_Home.html",
     rest_image: "https://lh3.googleusercontent.com/p/AF1QipNGzLKEmkrm_9Lu8yn4dOt6MdCnGPQ9g2Dykh0U=s680-w680-h510",
     open_time: Faker::Number.within(range: 5..7),
@@ -397,7 +397,7 @@ Restaurant.create(
     name: "Chauhan Ale & Masala House",
     phone: "615-242-8426",
     address: "123 12th Ave N, Nashville, TN 37203",
-    price: "$$",
+    price: "$",
     website: "https://chauhannashville.com/",
     rest_image: "https://lh3.googleusercontent.com/p/AF1QipOLbAnaiMiTdTfDhRXmOLhRH6pcUeTEfl5oCsUD=s680-w680-h510",
     open_time: Faker::Number.within(range: 5..7),
@@ -410,7 +410,7 @@ Restaurant.create(
     name: "Coco's Italian Market",
     phone: "615-783-0114",
     address: "411 51st Ave N, Nashville, TN 37209",
-    price: "$$",
+    price: "$",
     website: "https://www.cocositalianmarket.com/",
     rest_image: "https://lh3.googleusercontent.com/p/AF1QipN7rIdbc1FH2Dq9LzDYpZtKYdGoHWvmsWBttLmE=s680-w680-h510",
     open_time: Faker::Number.within(range: 5..7),
@@ -436,7 +436,7 @@ Restaurant.create(
     name: "Nicky's Coal Fired",
     phone: "615-678-4289",
     address: "5026 Centennial Blvd, Nashville, TN 37209",
-    price: "$$",
+    price: "$",
     website: "http://www.nickysnashville.com/",
     rest_image: "https://popmenucloud.com/cdn-cgi/image/width%3D1200%2Cheight%3D1200%2Cfit%3Dscale-down%2Cformat%3Dauto%2Cquality%3D60/ucdjltoi/e9058d54-2ee6-49ef-8c2a-6acb71c495f8.jpeg",
     open_time: Faker::Number.within(range: 5..7),
@@ -462,7 +462,7 @@ Restaurant.create(
     name: "Peninsula",
     phone: "615-679-0377",
     address: "1035 W Eastland Ave, Nashville, TN 37206",
-    price: "$$",
+    price: "$$$",
     website: "https://peninsulashville.com/",
     rest_image: "https://lh3.googleusercontent.com/p/AF1QipOIwmFq974Cx9-b-yvzucPt3zTxhBfe2y2kKgbH=s680-w680-h510",
     open_time: Faker::Number.within(range: 5..7),
@@ -492,7 +492,7 @@ puts 'seeding 100 reservations 📆'
     user_id: User.all.sample.id,
     restaurant_id: Restaurant.all.sample.id,
     date: my_dates.sample,
-    time: Faker::Number.within(range: 5..7),
+    time: Faker::Number.between(from: 5, to: 7),
     number_of_seats: Faker::Number.within(range: 2..8),
     check_type: my_check.sample
 )
@@ -500,7 +500,7 @@ end
 puts 'done seeding reservations 📆'
 
 puts 'seeding 40 interests 🗣️'
-40.times do Interest.create(
+100.times do Interest.create(
     reservation_id: Reservation.all.sample.id,
     interest: my_interests.sample,
     priority: Faker::Number.within(range: 1..10))
@@ -517,7 +517,7 @@ puts 'seeding 300 ratings ⭐️'
 end
 puts 'done seeding ratings ⭐️'
 
-puts 'seeding 6 cuisines 🥙'
+puts 'seeding cuisines 🥙'
 my_number = 0
 30.times do
     my_number = my_number + 1
