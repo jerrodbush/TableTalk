@@ -9,12 +9,15 @@ import '../context/user.js';
 import { UserContext } from "../context/user";
 
 
+
 export default function ProfilePage() {
 
   // initialize User Context
   const { userState, setUserState } = useContext(UserContext);
 
   const [userInfo, setUserInfo] = useState([]);
+
+
 
   const [interests, setInterestState] = useState([]);
 
@@ -37,31 +40,59 @@ export default function ProfilePage() {
     }
   };
 
+  const userId = userState.user_id;
   console.log(userState);
 
+
   useEffect(() => {
-    fetch(`http://localhost:9292/users/${userState.user_id}`)
+    fetch(`http://localhost:9292/users/${userId}`)
     .then(res => res.json())
     .then(obj => setUserInfo(obj))
     .then(console.log(userInfo))
+    .then(checkReservations())
   }, [])
+
+  console.log(userInfo);
+
+  const checkReservations = () => {
+    if (userInfo.reservations === undefined) {
+      console.log('undefined iran')
+    } else {
+      // const renderReservations = userInfo.reservations.forEach(
+        console.log("iran no undefined")
+    }
+  }
+
+  // checkReservations();
+  // checkRes
+  // const renderReservations = userInfo.reservations.forEach(
+  //   console.log("hello"))
+
 
    //tag cloud testing purposes
    const data = [
     { value: 'JavaScript', count: 38, color: "blue" }
   ]
 
-  const userInterests = userInfo.my_interests
+  // let renderReservations;
+  // console.log(userInfo.reservations);
+  // useEffect(() => {
+  //   // console.log(userInfo.reservations);
+  //   renderReservations = userInfo.reservations.map(item => {
 
-  const renderInterests = () => {
-    if (userInterests !== undefined) {
-      userInterests.map(item => {
-        
-      })
-    } else if (userInterests === undefined) {
-      
-    }
-  }
+  //     console.log(item);
+  //   })
+  // },[1000]);
+
+  // const talkCheck = () => {
+  //   if (userInfo.dinner_partners === undefined) {
+
+  //   } else {
+  //     let talkers = userInfo.dinner_partners.map(item => {
+  //       return <div><h3>{item.first_name}</h3></div>
+  //     })
+  //   }
+  // }
 
   return (
     <>
@@ -92,26 +123,16 @@ export default function ProfilePage() {
         <div id="reserve-wrapper-p">
             <h3>Reservations</h3>
             <Carousel responsive={responsive}>
-              <p>Add Reservations</p>
+              <></>
+              {/* {renderReservations} */}
             </Carousel>
         </div>
 
         <div id="tabletalkers-wrapper">
           <h3>TableTalkers</h3>
           <Carousel responsive={responsive}>
-              <h1>Test2</h1>
-              <h1>Test2</h1>
-              <h1>Test2</h1>
-              <h1>Test2</h1>
-              <h1>Test2</h1>
-              <h1>Test2</h1>
-              <h1>Test2</h1>
-              <h1>Test2</h1>
-              <h1>Test2</h1>
-              <h1>Test2</h1>
-              <h1>Test2</h1>
-              <h1>Test2</h1>
-              <h1>Test2</h1>
+              <>
+              </>
             </Carousel>
         </div>
       </div>
